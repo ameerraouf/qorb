@@ -112,7 +112,7 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                             </a>
                                         </li>
 
-                                        <?php
+                                        {{--<?php
                                         $currentFolder = "analytics/referrer"; // Put folder name here
                                         $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                         ?>
@@ -121,7 +121,7 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                             <span
                                                 class="nav-text">{{ __('backend.visitorsAnalyticsByReachWay') }}</span>
                                             </a>
-                                        </li>
+                                        </li> --}}
                                         <?php
                                         $currentFolder = "analytics/hostname"; // Put folder name here
                                         $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
@@ -388,7 +388,7 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                             <span class="nav-text">{{ __('backend.generalSettings') }}</span>
                                         </a>
                                     </li>
-                                    <?php
+                                    {{--<?php
                                     $currentFolder = "menus"; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
@@ -396,8 +396,8 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                         <a href="{{ route('menus') }}">
                                             <span class="nav-text">{{ __('backend.siteMenus') }}</span>
                                         </a>
-                                    </li>
-                                    <?php
+                                    </li>--}}
+                                    {{--<?php
                                     $currentFolder = "file-manager"; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
                                     ?>
@@ -405,7 +405,7 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                         <a href="{{ route('FileManager') }}">
                                             <span class="nav-text">{{ __('backend.fileManager') }}</span>
                                         </a>
-                                    </li>
+                                    </li>--}}
                                     <?php
                                     $currentFolder = "users"; // Put folder name here
                                     $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
@@ -446,7 +446,7 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                         <span class="nav-text">{{ __('backend.generalSettings') }}</span>
                                     </a>
                                 </li>
-                                <?php
+                                {{--<?php
                                 $currentSubFolder = "sections"; // Put folder name here
                                 $PathCurrentSubFolder = substr($urlAfterRoot, (strlen($currentFolder) + 1),
                                     strlen($currentSubFolder));
@@ -455,8 +455,8 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                     <a href="{{ route('WebmasterSections') }}">
                                         <span class="nav-text">{{ __('backend.siteSectionsSettings') }}</span>
                                     </a>
-                                </li>
-                                <?php
+                                </li> --}}
+                                {{--<?php
                                 $currentSubFolder = "banners"; // Put folder name here
                                 $PathCurrentSubFolder = substr($urlAfterRoot, (strlen($currentFolder) + 1),
                                     strlen($currentSubFolder));
@@ -465,7 +465,7 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                                     <a href="{{ route('WebmasterBanners') }}">
                                         <span class="nav-text">{{ __('backend.adsBannersSettings') }}</span>
                                     </a>
-                                </li>
+                                </li>--}}
 
                             </ul>
                         </li>

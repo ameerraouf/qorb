@@ -173,7 +173,7 @@
                     </article>
                 </div>
             </div>
-            @if(count($Topic->maps) >0)
+           {{-- @if(count($Topic->maps) >0)
                 <div class="row">
                     <div class="col-md-12">
                         <h4><i class="fa fa-map-marker"></i> {{ __('frontend.locationMap') }}</h4>
@@ -181,7 +181,7 @@
                         <br>
                     </div>
                 </div>
-            @endif
+            @endif --}}
             <div class="row">
 
                 <div class="col-lg-6">
