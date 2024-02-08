@@ -551,4 +551,137 @@
         </section>
     @endif
 
+    <!-- بداية صفحة الأسئلة الشائعة -->
+    <section class="content-row-no-bg">
+            <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                            <div class="home-row-head">
+                            <h2 class="heading">الأسئلة الشائعة</h2>
+                        </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                            <div class="panel-group mian-accordion" id="accordion">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" href="#collapse1">Section 1
+                              <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16"><path d="M12,17.17a5,5,0,0,1-3.54-1.46L.29,7.54A1,1,0,0,1,1.71,6.12l8.17,8.17a3,3,0,0,0,4.24,0l8.17-8.17a1,1,0,1,1,1.42,1.42l-8.17,8.17A5,5,0,0,1,12,17.17Z"/></svg>
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <p>Content for section 1 goes here.</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" href="#collapse2">Section 2
+                                <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16"><path d="M12,17.17a5,5,0,0,1-3.54-1.46L.29,7.54A1,1,0,0,1,1.71,6.12l8.17,8.17a3,3,0,0,0,4.24,0l8.17-8.17a1,1,0,1,1,1.42,1.42l-8.17,8.17A5,5,0,0,1,12,17.17Z"/></svg>
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <p>Content for section 2 goes here.</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" href="#collapse3">
+                                Section 3
+                              <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16"><path d="M12,17.17a5,5,0,0,1-3.54-1.46L.29,7.54A1,1,0,0,1,1.71,6.12l8.17,8.17a3,3,0,0,0,4.24,0l8.17-8.17a1,1,0,1,1,1.42,1.42l-8.17,8.17A5,5,0,0,1,12,17.17Z"/></svg>
+                            </a>
+                            </h4>
+                          </div>
+                          <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <p>Content for section 3 goes here.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                            </div>
+                        </div>
+            </div>
+    </section>
+    <!-- نهاية صفحة الأسئلة الشائعة -->
+    
+    <!-- بداية صفحة الباقات -->
+    <section class="content-row-no-bg top-line">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="home-row-head">
+                        <h2 class="heading">الباقات</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="box-package">
+                        <h3 class="title">
+                            أسم الباقة
+                        </h3>
+                        <h4 class="price">
+                            500.00
+                            <span>
+                                ريال
+                            </span>
+                        </h4>
+                        <ul class="list">
+                            <li>
+                            <span class="icon">
+                                &#10003;
+                                ميزة
+                            </span>
+                            </li>
+                            <li>
+                            <span class="icon">
+                                &#10003;
+                                ميزة
+                            </span>
+                            </li>
+                            <li>
+                            <span class="icon">
+                                &#10003;
+                                ميزة
+                            </span>
+                            </li>
+                            <li>
+                            <span class="icon">
+                                &#10003;
+                                ميزة
+                            </span>
+                            </li>
+                            <li>
+                            <span class="icon">
+                                &#10003;
+                                ميزة
+                            </span>
+                            </li>
+                        </ul>
+                        <a href="" class="btn-box">
+                            أشترك الأن
+                        </a>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- نهاية صفحة الباقات -->
+
 @endsection
