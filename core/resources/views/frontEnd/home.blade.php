@@ -627,57 +627,151 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
-                <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="box-package">
-                        <h3 class="title">
-                            أسم الباقة
-                        </h3>
-                        <h4 class="price">
-                            500.00
-                            <span>
-                                ريال
-                            </span>
-                        </h4>
-                        <ul class="list">
-                            <li>
-                            <span class="icon">
-                                &#10003;
-                                ميزة
-                            </span>
-                            </li>
-                            <li>
-                            <span class="icon">
-                                &#10003;
-                                ميزة
-                            </span>
-                            </li>
-                            <li>
-                            <span class="icon">
-                                &#10003;
-                                ميزة
-                            </span>
-                            </li>
-                            <li>
-                            <span class="icon">
-                                &#10003;
-                                ميزة
-                            </span>
-                            </li>
-                            <li>
-                            <span class="icon">
-                                &#10003;
-                                ميزة
-                            </span>
-                            </li>
-                        </ul>
-                        <a href="" class="btn-box">
-                            أشترك الأن
-                        </a>
+                <div class="col-12 row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="box-package">
+                            <h3 class="title">
+                                أسم الباقة
+                            </h3>
+                            <h4 class="price">
+                                500.00
+                                <span>
+                                    ريال
+                                </span>
+                            </h4>
+                            <ul class="list">
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                            </ul>
+                            <a href="" class="btn-box">
+                                أشترك الأن
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="box-package">
+                            <h3 class="title">
+                                أسم الباقة
+                            </h3>
+                            <h4 class="price">
+                                500.00
+                                <span>
+                                    ريال
+                                </span>
+                            </h4>
+                            <ul class="list">
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                            </ul>
+                            <a href="" class="btn-box">
+                                أشترك الأن
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="box-package">
+                            <h3 class="title">
+                                أسم الباقة
+                            </h3>
+                            <h4 class="price">
+                                500.00
+                                <span>
+                                    ريال
+                                </span>
+                            </h4>
+                            <ul class="list">
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                                <li>
+                                <span class="icon">
+                                    &#10003;
+                                </span>
+                                    ميزة
+                                </li>
+                            </ul>
+                            <a href="" class="btn-box">
+                                أشترك الأن
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
