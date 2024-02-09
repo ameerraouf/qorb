@@ -1,14 +1,14 @@
 @extends('dashboard.layouts.master')
-@section('title','القوائم المالية')
+@section('title', __('cruds.FinancialTransactions.Title') )
 @section('content')
     <div class="padding">
         <div class="box">
             <div class="box-header dker">
-                <h3><i class="material-icons">&#xe02e;</i> ارسال دفعة</h3>
+                <h3><i class="material-icons">&#xe02e;</i> {{ __('cruds.FinancialTransactions.SendPayment') }}</h3>
                 <small>
                     <a href="{{ route('adminHome') }}">{{ __('backend.home') }}</a> /
-                    <a href="">القوائم المالية</a> /
-                    <a href="">ارسال دفعة</a>
+                    <a href="{{ route('financial-transactions') }}">{{ __('cruds.FinancialTransactions.Title') }}</a> /
+                    <a href="">{{ __('cruds.FinancialTransactions.SendPayment') }}</a>
                 </small>
             </div>
             <div class="box-tool">
@@ -25,7 +25,7 @@
 
                 <div class="form-group row">
                     <label for="name"
-                           class="col-sm-2 form-control-label">الاسم
+                           class="col-sm-2 form-control-label">{{ __('cruds.FinancialTransactions.Name') }}
                     </label>
                     <div class="col-sm-10">
                         {!! Form::text('name','', array('placeholder' => '','class' => 'form-control','id'=>'name','required'=>'')) !!}
@@ -34,7 +34,7 @@
 
                 <div class="form-group row">
                     <label for="image"
-                           class="col-sm-2 form-control-label">صورة التحويل البنكي</label>
+                           class="col-sm-2 form-control-label">{{ __('cruds.FinancialTransactions.CopyOfTheBankTransfer') }}</label>
                     <div class="col-sm-10">
                         {!! Form::file('image', array('class' => 'form-control','id'=>'image','accept'=>'image/*','required'=>'')) !!}
                         <small>
@@ -47,7 +47,7 @@
 
                 <div class="form-group row">
                     <label for="permissions1"
-                           class="col-sm-2 form-control-label">ملاحظات</label>
+                           class="col-sm-2 form-control-label">{{ __('cruds.FinancialTransactions.Notes') }}</label>
                     <div class="col-sm-10">
                         {!! Form::textarea('notes','', array('placeholder' => '','class' => 'form-control','id'=>'notes','rows'=>'3')) !!}
                     </div>

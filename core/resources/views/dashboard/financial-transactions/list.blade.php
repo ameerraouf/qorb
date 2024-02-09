@@ -1,22 +1,22 @@
 @extends('dashboard.layouts.master')
-@section('title','القوائم المالية')
+@section('title', __('cruds.FinancialTransactions.Title') )
 @section('content')
     <div class="padding">
         <div class="box">
             <div class="box-header dker">
-                <h3>القوائم المالية</h3>
+                <h3>{{ __('cruds.FinancialTransactions.Title') }}</h3>
                 <small>
                     <a href="{{ route('adminHome') }}">{{ __('backend.home') }}</a> /
-                    <a href="">القوائم المالية</a>
+                    <a >{{ __('cruds.FinancialTransactions.Title') }}</a>
                 </small>
             </div>
-            @if($transactions->total() >0)
+            @if($transactions->total() > 0)
                 @if(@Auth::user()->permissionsGroup->webmaster_status)
                     <div class="row p-a pull-right" style="margin-top: -70px;">
                         <div class="col-sm-12">
                             <a class="btn btn-fw primary" href="{{route("financialTransactionsCreate")}}">
                                 <i class="material-icons">&#xe7fe;</i>
-                                &nbsp; ارسال دفعة
+                                &nbsp; {{ __('cruds.FinancialTransactions.SendPayment') }}
                             </a>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                                 <br>
                                 <a class="btn btn-fw primary" href="{{route("financialTransactionsCreate")}}">
                                     <i class="material-icons">&#xe7fe;</i>
-                                    &nbsp; ارسال دفعة
+                                    &nbsp; {{ __('cruds.FinancialTransactions.SendPayment') }}
                                 </a>
                             @endif
                         </div>
@@ -51,9 +51,9 @@
                                     <input id="checkAll" type="checkbox"><i></i>
                                 </label>
                             </th>
-                            <th class="text-center">الاسم</th>
-                            <th class="text-center" style="width:180px;">صورة التحويل البنكي</th>
-                            <th class="text-center">ملاحظات</th>
+                            <th class="text-center" style="width:220px;">{{ __('cruds.FinancialTransactions.Name') }}</th>
+                            <th class="text-center" style="width:220px;">{{ __('cruds.FinancialTransactions.CopyOfTheBankTransfer') }}</th>
+                            <th class="text-center">{{ __('cruds.FinancialTransactions.Notes') }}</th>
                             <th class="text-center" style="width:200px;">{{ __('backend.options') }}</th>
                         </tr>
                         </thead>
@@ -84,7 +84,7 @@
                                     </a>
                                     @if(@Auth::user()->permissionsGroup->webmaster_status)
                                         <button class="btn btn-sm warning" data-toggle="modal"
-                                                data-target="#m-{{ $transaction->id }}" ui-toggle-class="bounce"
+                                                data-target="#delete-{{ $transaction->id }}" ui-toggle-class="bounce"
                                                 ui-target="#animate">
                                             <small><i class="material-icons">&#xe872;</i> {{ __('backend.delete') }}
                                             </small>
@@ -95,7 +95,7 @@
                                 </td>
                             </tr>
                             <!-- .modal -->
-                            <div id="m-{{ $transaction->id }}" class="modal fade" data-backdrop="true">
+                            <div id="delete-{{ $transaction->id }}" class="modal fade" data-backdrop="true">
                                 <div class="modal-dialog" id="animate">
                                     <div class="modal-content">
                                         <div class="modal-header">
