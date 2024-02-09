@@ -231,6 +231,19 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                     <?php
                     $data_sections_arr = explode(",", Auth::user()->permissionsGroup->data_sections);
                     ?>
+
+                    <?php
+                    $currentFolder = "financial-transactions"; // Put folder name here
+                    $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+                    ?>
+                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
+                        <a href="{{ route('financial-transactions') }}">
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe433;</i>
+                            </span>
+                            <span class="nav-text">{{ __('cruds.FinancialTransactions.Title') }}</span>
+                        </a>
+                    </li>
                     @foreach($GeneralWebmasterSections as $GeneralWebmasterSection)
                         @if(in_array($GeneralWebmasterSection->id,$data_sections_arr))
                             <?php
@@ -347,23 +360,6 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                             </li>
                         @endif
                     @endif
-
-                    {{-- @if(Helper::GeneralWebmasterSettings("banners_status")) --}}
-                        {{-- @if(@Auth::user()->permissionsGroup->banners_status) --}}
-                            <?php
-                            $currentFolder = "financial-transactions"; // Put folder name here
-                            $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
-                            ?>
-                            <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
-                                <a href="{{ route('financial-transactions') }}">
-                                    <span class="nav-icon">
-                                        <i class="material-icons">&#xe433;</i>
-                                    </span>
-                                    <span class="nav-text">القوائم المالية</span>
-                                </a>
-                            </li>
-                        {{-- @endif --}}
-                    {{-- @endif --}}
 
                     @if(Helper::GeneralWebmasterSettings("settings_status"))
                         @if(@Auth::user()->permissionsGroup->settings_status)
