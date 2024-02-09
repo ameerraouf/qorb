@@ -1,22 +1,23 @@
 <?php
 
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\UsersController;
-use App\Http\Controllers\Dashboard\WebmasterLicenseController;
-use App\Http\Controllers\Dashboard\WebmasterSettingsController;
-use App\Http\Controllers\Dashboard\WebmasterBannersController;
-use App\Http\Controllers\Dashboard\WebmasterSectionsController;
-use App\Http\Controllers\Dashboard\SettingsController;
-use App\Http\Controllers\Dashboard\BannersController;
-use App\Http\Controllers\Dashboard\CategoriesController;
-use App\Http\Controllers\Dashboard\TopicsController;
-use App\Http\Controllers\Dashboard\ContactsController;
-use App\Http\Controllers\Dashboard\WebmailsController;
-use App\Http\Controllers\Dashboard\EventsController;
-use App\Http\Controllers\Dashboard\AnalyticsController;
-use App\Http\Controllers\Dashboard\MenusController;
-use App\Http\Controllers\Dashboard\FileManagerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\MenusController;
+use App\Http\Controllers\Dashboard\UsersController;
+use App\Http\Controllers\Dashboard\EventsController;
+use App\Http\Controllers\Dashboard\TopicsController;
+use App\Http\Controllers\Dashboard\BannersController;
+use App\Http\Controllers\Dashboard\ContactsController;
+use App\Http\Controllers\Dashboard\SettingsController;
+use App\Http\Controllers\Dashboard\WebmailsController;
+use App\Http\Controllers\Dashboard\AnalyticsController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\CategoriesController;
+use App\Http\Controllers\Dashboard\FileManagerController;
+use App\Http\Controllers\Dashboard\WebmasterBannersController;
+use App\Http\Controllers\Dashboard\WebmasterLicenseController;
+use App\Http\Controllers\Dashboard\WebmasterSectionsController;
+use App\Http\Controllers\Dashboard\WebmasterSettingsController;
+use App\Http\Controllers\Dashboard\FinancialTransactionController;
 
 // Admin Home
 Route::get('/', [DashboardController::class, 'index'])->name('adminHome');
@@ -273,3 +274,12 @@ Route::get('/cache-clear', function () {
     Artisan::call('view:clear');
     return redirect()->back()->with('doneMessage', __('backend.cashClearDone'));
 })->name('cacheClear');
+// Menus
+
+Route::get('/financial-transactions', [FinancialTransactionController::class, 'index'])->name('financial-transactions');
+Route::get('/financial-transactions/create/', [FinancialTransactionController::class, 'create'])->name('financialTransactionsCreate');
+Route::post('/financial-transactions/store', [FinancialTransactionController::class, 'store'])->name('financialTransactionsStore');
+Route::get('/financial-transactions/{id}/edit', [FinancialTransactionController::class, 'edit'])->name('financialTransactionsEdit');
+Route::post('/financial-transactions/{id}/update', [FinancialTransactionController::class, 'update'])->name('financialTransactionsUpdate');
+Route::get('/financial-transactions/destroy/{id}', [FinancialTransactionController::class, 'destroy'])->name('financialTransactionsDestroy');
+Route::post('/financial-transactions/updateAll', [FinancialTransactionController::class, 'updateAll'])->name('financialTransactionsUpdateAll');

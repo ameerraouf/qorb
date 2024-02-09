@@ -339,14 +339,31 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                             ?>
                             <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
                                 <a href="{{ route('Banners') }}">
-<span class="nav-icon">
-<i class="material-icons">&#xe433;</i>
-</span>
+                                    <span class="nav-icon">
+                                        <i class="material-icons">&#xe433;</i>
+                                    </span>
                                     <span class="nav-text">{{ __('backend.adsBanners') }}</span>
                                 </a>
                             </li>
                         @endif
                     @endif
+
+                    {{-- @if(Helper::GeneralWebmasterSettings("banners_status")) --}}
+                        {{-- @if(@Auth::user()->permissionsGroup->banners_status) --}}
+                            <?php
+                            $currentFolder = "financial-transactions"; // Put folder name here
+                            $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+                            ?>
+                            <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
+                                <a href="{{ route('financial-transactions') }}">
+                                    <span class="nav-icon">
+                                        <i class="material-icons">&#xe433;</i>
+                                    </span>
+                                    <span class="nav-text">القوائم المالية</span>
+                                </a>
+                            </li>
+                        {{-- @endif --}}
+                    {{-- @endif --}}
 
                     @if(Helper::GeneralWebmasterSettings("settings_status"))
                         @if(@Auth::user()->permissionsGroup->settings_status)
@@ -369,12 +386,12 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                             ?>
                             <li {{ ($PathCurrentFolder==$currentFolder || $PathCurrentFolder2==$currentFolder2 || $PathCurrentFolder3==$currentFolder3 || $PathCurrentFolder4==$currentFolder4 ) ? 'class=active' : '' }}>
                                 <a>
-<span class="nav-caret">
-<i class="fa fa-caret-down"></i>
-</span>
-                                    <span class="nav-icon">
-<i class="material-icons">&#xe8b8;</i>
-</span>
+                                <span class="nav-caret">
+                                <i class="fa fa-caret-down"></i>
+                                </span>
+                                                                    <span class="nav-icon">
+                                <i class="material-icons">&#xe8b8;</i>
+                                </span>
                                     <span class="nav-text">{{ __('backend.generalSiteSettings') }}</span>
                                 </a>
                                 <ul class="nav-sub">
