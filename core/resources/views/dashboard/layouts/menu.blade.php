@@ -244,6 +244,19 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                             <span class="nav-text">{{ __('cruds.FinancialTransactions.Title') }}</span>
                         </a>
                     </li>
+
+                    <?php
+                    $currentFolder = "common-questions"; // Put folder name here
+                    $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+                    ?>
+                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
+                        <a href="{{ route('CommonQuestions') }}">
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe433;</i>
+                            </span>
+                            <span class="nav-text">{{ __('cruds.CommonQuestions.Title') }}</span>
+                        </a>
+                    </li>
                     @foreach($GeneralWebmasterSections as $GeneralWebmasterSection)
                         @if(in_array($GeneralWebmasterSection->id,$data_sections_arr))
                             <?php

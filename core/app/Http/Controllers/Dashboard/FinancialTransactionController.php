@@ -102,7 +102,7 @@ class FinancialTransactionController extends Controller
         if (!empty($transaction)) {
             return view("dashboard.financial-transactions.edit", compact("transaction", "GeneralWebmasterSections"));
         } else {
-            return redirect()->action('Dashboard\UsersController@index');
+            return redirect()->action('Dashboard\FinancialTransactionController@index');
         }
     }
 
@@ -175,7 +175,7 @@ class FinancialTransactionController extends Controller
                         File::delete($this->getUploadPath() . $transaction->image);
                     }
                 }
-                FinancialTransaction::wherein('id', $request->ids)->where('id', "!=", 1)
+                FinancialTransaction::wherein('id', $request->ids)
                     ->delete();
             }
         }

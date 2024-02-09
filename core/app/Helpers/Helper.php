@@ -587,7 +587,7 @@ class Helper
     {
         $_Loader_Languages = \Session::get('_Loader_Languages');
         if (empty($_Loader_Languages)) {
-            $_Loader_Languages = Language::all();
+            $_Loader_Languages = Language::orderBy('id','ASC')->get();
             \Session()->put('_Loader_Languages', $_Loader_Languages);
         }
         return $_Loader_Languages->where("status", true);

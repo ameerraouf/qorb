@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\AnalyticsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\CategoriesController;
 use App\Http\Controllers\Dashboard\FileManagerController;
+use App\Http\Controllers\Dashboard\CommonQuestionController;
 use App\Http\Controllers\Dashboard\WebmasterBannersController;
 use App\Http\Controllers\Dashboard\WebmasterLicenseController;
 use App\Http\Controllers\Dashboard\WebmasterSectionsController;
@@ -276,6 +277,7 @@ Route::get('/cache-clear', function () {
 })->name('cacheClear');
 // Menus
 
+// Financial Transaction
 Route::get('/financial-transactions', [FinancialTransactionController::class, 'index'])->name('financial-transactions');
 Route::get('/financial-transactions/create/', [FinancialTransactionController::class, 'create'])->name('financialTransactionsCreate');
 Route::post('/financial-transactions/store', [FinancialTransactionController::class, 'store'])->name('financialTransactionsStore');
@@ -283,3 +285,12 @@ Route::get('/financial-transactions/{id}/edit', [FinancialTransactionController:
 Route::post('/financial-transactions/{id}/update', [FinancialTransactionController::class, 'update'])->name('financialTransactionsUpdate');
 Route::get('/financial-transactions/destroy/{id}', [FinancialTransactionController::class, 'destroy'])->name('financialTransactionsDestroy');
 Route::post('/financial-transactions/updateAll', [FinancialTransactionController::class, 'updateAll'])->name('financialTransactionsUpdateAll');
+
+// Common Questions
+Route::get('/common-questions', [CommonQuestionController::class, 'index'])->name('CommonQuestions');
+Route::get('/common-questions/create/', [CommonQuestionController::class, 'create'])->name('CommonQuestionsCreate');
+Route::post('/common-questions/store', [CommonQuestionController::class, 'store'])->name('CommonQuestionsStore');
+Route::get('/common-questions/{id}/edit', [CommonQuestionController::class, 'edit'])->name('CommonQuestionsEdit');
+Route::post('/common-questions/{id}/update', [CommonQuestionController::class, 'update'])->name('CommonQuestionsUpdate');
+Route::get('/common-questions/destroy/{id}', [CommonQuestionController::class, 'destroy'])->name('CommonQuestionsDestroy');
+Route::post('/common-questions/updateAll', [CommonQuestionController::class, 'updateAll'])->name('CommonQuestionsUpdateAll');
