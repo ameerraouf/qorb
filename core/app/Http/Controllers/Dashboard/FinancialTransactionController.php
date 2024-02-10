@@ -32,13 +32,7 @@ class FinancialTransactionController extends Controller
         // General for all pages
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
         // General END
-
-        if (@Auth::user()->permissionsGroup->view_status) {
-            $transactions = FinancialTransaction::where('created_by', '=', Auth::user()->id)->orwhere('id', '=', Auth::user()->id)->orderby('id',
-                'asc')->paginate(env('BACKEND_PAGINATION'));
-        } else {
-            $transactions = FinancialTransaction::orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
-        }
+        $transactions = FinancialTransaction::orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
         return view("dashboard.financial-transactions.list", compact("transactions","GeneralWebmasterSections"));
     }
 
@@ -52,7 +46,6 @@ class FinancialTransactionController extends Controller
         // General for all pages
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
         // General END
-        // $Permissions = Permissions::orderby('id', 'asc')->get();
 
         return view("dashboard.financial-transactions.create", compact("GeneralWebmasterSections"));
     }
@@ -109,7 +102,7 @@ class FinancialTransactionController extends Controller
         if (!empty($transaction)) {
             return view("dashboard.financial-transactions.edit", compact("transaction", "GeneralWebmasterSections"));
         } else {
-            return redirect()->action('Dashboard\UsersController@index');
+            return redirect()->action('Dashboard\FinancialTransactionController@index');
         }
     }
 
@@ -182,7 +175,7 @@ class FinancialTransactionController extends Controller
                         File::delete($this->getUploadPath() . $transaction->image);
                     }
                 }
-                FinancialTransaction::wherein('id', $request->ids)->where('id', "!=", 1)
+                FinancialTransaction::wherein('id', $request->ids)
                     ->delete();
             }
         }

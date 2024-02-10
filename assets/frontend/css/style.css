@@ -105,6 +105,21 @@ img.img-polaroid {
 }
 
 /* ===================================
+4. Helper Classaes
+==================================== */
+.row-gap-24 {
+    row-gap: 24px;
+}
+.mt-0 {
+    margin-top: 0;
+}
+.text-black {
+    color: #333;
+}
+.text-main-color {
+    color: #0cbaa4;
+}
+/* ===================================
 4. Components
 ==================================== */
 .mian-accordion .panel-heading {
@@ -130,10 +145,214 @@ img.img-polaroid {
     height: 100%;
 }
 
+.boxes-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 .box-package .title {
-    margin: 0 0 1rem;
+    margin: 0 0 1.5rem;
     font-size: 15px;
     border-radius: 4px;
+}
+.box-package .price {
+    font-size: 42px;
+    display: flex;
+    gap: 2px;
+    margin: 0 0 1rem;
+}
+.box-package .price span {
+    font-size: 18px;
+    font-weight: normal;
+}
+.box-package .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    font-size: 15px;
+    margin: 0 0 1rem;
+}
+.box-package .list li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.box-package .list li .icon {
+    background-color: #17bd17;
+    color: white;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+    padding-top: 3px;
+}
+.box-package .btn-box {
+    display: block;
+    width: 100%;
+    background-color: #0cbaa4;
+    color: white;
+    padding: 0.8rem 1rem;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.box-faq {
+    box-shadow: 0 0 7px 0 #0000001f;
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    display: block;
+    text-decoration: none !important;
+    position: relative;
+    transition: 300ms;
+}
+.box-faq::after{
+    content: "";
+    bottom: 0;
+    inset-inline-end: 0;
+    height: 2px;
+    width: 0;
+    position: absolute;
+    transition: 300ms;
+    background-color: #0cbaa4;
+}
+.box-faq:hover{
+    background-color: #eee;
+}
+.box-faq:hover:after{
+    width: 100%;
+}
+.box-faq .content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.box-faq .content::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    bottom: 0;
+    width: calc(100% + 3rem);
+    height: 1px;
+    background-color: #eee;
+}
+.box-faq .content .img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.box-faq .content .title {
+    margin: 0;
+    font-size: 16px;
+}
+.box-faq .footer-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.box-faq .footer-box .name {
+    font-size: 14px;
+    color: #555555;
+    font-weight: bold;
+}
+.box-faq .footer-box .btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.box-faq .footer-box .btn {
+    padding: 0;
+    font-size: 16px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-faq {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+.header-faq .info-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.header-faq .info-user .img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.header-faq .data {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.header-faq .data .date {
+    color: #999999;
+}
+.header-faq .data .item {
+    color: #333333;
+}
+.header-faq .data .item .title-item{
+    color: #0cbaa4;
+}
+
+.box-comment {
+    padding: 1.5rem;
+    box-shadow: 0 0 7px 0 #0000001f;
+    border: 1px solid #eee;
+    border-inline-start: 2px solid #0cbaa4;
+    border-radius: 4px;
+}
+.box-comment .info-user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.box-comment .info-user .img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.box-comment .info-user .name{
+    font-size: 14px;
+    color: #333333;
+}
+.box-comment .content{
+    color: black;
+    font-size: 15px;
+    margin: 0;
+}
+
+.box-add-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 4rem;
+    align-items: center;
+}
+.box-add-comment textarea{
+    height: 150px;
 }
 /* ===================================
 4. Header

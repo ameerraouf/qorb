@@ -207,10 +207,11 @@ if ($WebmasterSection->$title_var != "") {
                                         @else
                                             <div class="box p-a-xs">
                                                 {!! Form::textarea('details_'.@$ActiveLanguage->code,'<div dir='.@$ActiveLanguage->direction.'><br></div>', array('ui-jp'=>'summernote','placeholder' => '','class' => 'form-control summernote_'.@$ActiveLanguage->code, 'dir'=>@$ActiveLanguage->direction,'ui-options'=>'{height: 300,callbacks: {
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0], editor, welEditable,"'.@$ActiveLanguage->code.'");
-            }
-        }}')) !!}
+                                                        onImageUpload: function(files, editor, welEditable) {
+                                                            sendFile(files[0], editor, welEditable,"'.@$ActiveLanguage->code.'");
+                                                        }
+                                                    }}'))
+                                                !!}
                                             </div>
                                         @endif
                                     </div>

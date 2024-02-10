@@ -1,28 +1,28 @@
 @extends('dashboard.layouts.master')
-@section('title', __('cruds.FinancialTransactions.Title') )
+@section('title', __('cruds.CommonQuestions.Title') )
 @section('content')
     <div class="padding">
         <div class="box">
             <div class="box-header dker">
-                <h3>{{ __('cruds.FinancialTransactions.Title') }}</h3>
+                <h3>{{ __('cruds.CommonQuestions.Title') }}</h3>
                 <small>
                     <a href="{{ route('adminHome') }}">{{ __('backend.home') }}</a> /
-                    <a >{{ __('cruds.FinancialTransactions.Title') }}</a>
+                    <a >{{ __('cruds.CommonQuestions.Title') }}</a>
                 </small>
             </div>
-            @if($transactions->total() > 0)
+            @if($questions->total() > 0)
                 @if(@Auth::user()->permissionsGroup->webmaster_status)
                     <div class="row p-a pull-right" style="margin-top: -70px;">
                         <div class="col-sm-12">
-                            <a class="btn btn-fw primary" href="{{route("financialTransactionsCreate")}}">
+                            <a class="btn btn-fw primary" href="{{route("CommonQuestionsCreate")}}">
                                 <i class="material-icons">&#xe7fe;</i>
-                                &nbsp; {{ __('cruds.FinancialTransactions.SendPayment') }}
+                                &nbsp; {{ __('cruds.CommonQuestions.NewQuestion') }}
                             </a>
                         </div>
                     </div>
                 @endif
             @endif
-            @if($transactions->total() == 0)
+            @if($questions->total() == 0)
                 <div class="row p-a">
                     <div class="col-sm-12">
                         <div class=" p-a text-center ">
@@ -30,9 +30,9 @@
                             <br>
                             @if(@Auth::user()->permissionsGroup->webmaster_status)
                                 <br>
-                                <a class="btn btn-fw primary" href="{{route("financialTransactionsCreate")}}">
+                                <a class="btn btn-fw primary" href="{{route("CommonQuestionsCreate")}}">
                                     <i class="material-icons">&#xe7fe;</i>
-                                    &nbsp; {{ __('cruds.FinancialTransactions.SendPayment') }}
+                                    &nbsp; {{ __('cruds.CommonQuestions.NewQuestion') }}
                                 </a>
                             @endif
                         </div>
@@ -40,8 +40,8 @@
                 </div>
             @endif
 
-            @if($transactions->total() > 0)
-                {{Form::open(['route'=>'financialTransactionsUpdateAll','method'=>'post'])}}
+            @if($questions->total() > 0)
+                {{Form::open(['route'=>'CommonQuestionsUpdateAll','method'=>'post'])}}
                 <div class="table-responsive">
                     <table class="table table-bordered m-a-0">
                         <thead class="dker">
@@ -51,40 +51,44 @@
                                     <input id="checkAll" type="checkbox"><i></i>
                                 </label>
                             </th>
-                            <th class="text-center" style="width:220px;">{{ __('cruds.FinancialTransactions.Name') }}</th>
-                            <th class="text-center" style="width:220px;">{{ __('cruds.FinancialTransactions.CopyOfTheBankTransfer') }}</th>
-                            <th class="text-center">{{ __('cruds.FinancialTransactions.Notes') }}</th>
+                            <th class="text-center">{{ app()->getLocale() === 'ar' ? __('cruds.CommonQuestions.Question_AR') : __('cruds.CommonQuestions.Question_EN') }}</th>
+                            <th class="text-center">{{ app()->getLocale() === 'ar' ? __('cruds.CommonQuestions.Answer_AR') : __('cruds.CommonQuestions.Answer_EN') }}</th>
                             <th class="text-center" style="width:200px;">{{ __('backend.options') }}</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        @foreach($transactions as $transaction)
+                        @foreach($questions as $question)
                             <tr>
                                 <td class="dker"><label class="ui-check m-a-0">
-                                        <input type="checkbox" name="ids[]" value="{{ $transaction->id }}"><i
+                                        <input type="checkbox" name="ids[]" value="{{ $question->id }}"><i
                                             class="dark-white"></i>
-                                        {!! Form::hidden('row_ids[]',$transaction->id, array('class' => 'form-control row_no')) !!}
+                                        {!! Form::hidden('row_ids[]',$question->id, array('class' => 'form-control row_no')) !!}
                                     </label>
                                 </td>
                                 <td class="h6 text-center">
-                                    {!! $transaction->name   !!}
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! strlen($question->question_ar) > 40 ? substr($question->question_ar, 0, 40) . '...' : $question->question_ar!!}
+                                    @else
+                                        {!! strlen($question->question_en) > 40 ? substr($question->question_en, 0, 40) . '...' : $question->question_en!!}
+                                    @endif
                                 </td>
                                 <td class="h6 text-center">
-                                    <img src="uploads/financial-transactions/{{ $transaction->image }}" width="30px" height="30px" alt="">
-                                </td>
-                                <td class="h6 text-center">
-                                    {!! $transaction->notes ?? '-'   !!}
+                                    @if(app()->getLocale() == 'ar')
+                                        {{ strip_tags($question->answer_ar) }}
+                                    @else
+                                        {{ strip_tags($question->answer_en) }}
+                                    @endif
                                 </td>
                                 <td class="text-center">
                                     <a class="btn btn-sm success"
-                                       href="{{ route("financialTransactionsEdit",["id"=>$transaction->id]) }}">
+                                       href="{{ route("CommonQuestionsEdit",["id"=>$question->id]) }}">
                                         <small><i class="material-icons">&#xe3c9;</i> {{ __('backend.edit') }}
                                         </small>
                                     </a>
                                     @if(@Auth::user()->permissionsGroup->webmaster_status)
                                         <button class="btn btn-sm warning" data-toggle="modal"
-                                                data-target="#delete-{{ $transaction->id }}" ui-toggle-class="bounce"
+                                                data-target="#delete-{{ $question->id }}" ui-toggle-class="bounce"
                                                 ui-target="#animate">
                                             <small><i class="material-icons">&#xe872;</i> {{ __('backend.delete') }}
                                             </small>
@@ -95,7 +99,7 @@
                                 </td>
                             </tr>
                             <!-- .modal -->
-                            <div id="delete-{{ $transaction->id }}" class="modal fade" data-backdrop="true">
+                            <div id="delete-{{ $question->id }}" class="modal fade" data-backdrop="true">
                                 <div class="modal-dialog" id="animate">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -105,13 +109,19 @@
                                             <p>
                                                 {{ __('backend.confirmationDeleteMsg') }}
                                                 <br>
-                                                <strong>[ {{ $transaction->name }} ]</strong>
+                                                <strong>[
+                                                    @if(app()->getLocale() == 'ar')
+                                                        {!! strlen($question->question_ar) > 40 ? substr($question->question_ar, 0, 40) . '...' : $question->question_ar!!}
+                                                    @else
+                                                        {!! strlen($question->question_en) > 40 ? substr($question->question_en, 0, 40) . '...' : $question->question_en!!}
+                                                    @endif
+                                                ]</strong>
                                             </p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn dark-white p-x-md"
                                                     data-dismiss="modal">{{ __('backend.no') }}</button>
-                                            <a href="{{ route("financialTransactionsDestroy",["id"=>$transaction->id]) }}"
+                                            <a href="{{ route("CommonQuestionsDestroy",["id"=>$question->id]) }}"
                                                class="btn danger p-x-md">{{ __('backend.yes') }}</a>
                                         </div>
                                     </div><!-- /.modal-content -->
@@ -166,12 +176,12 @@
                         </div>
 
                         <div class="col-sm-3 text-center">
-                            <small class="text-muted inline m-t-sm m-b-sm">{{ __('backend.showing') }} {{ $transactions->firstItem() }}
-                                -{{ $transactions->lastItem() }} {{ __('backend.of') }}
-                                <strong>{{ $transactions->total()  }}</strong> {{ __('backend.records') }}</small>
+                            <small class="text-muted inline m-t-sm m-b-sm">{{ __('backend.showing') }} {{ $questions->firstItem() }}
+                                -{{ $questions->lastItem() }} {{ __('backend.of') }}
+                                <strong>{{ $questions->total()  }}</strong> {{ __('backend.records') }}</small>
                         </div>
                         <div class="col-sm-6 text-right text-center-xs">
-                            {!! $transactions->links() !!}
+                            {!! $questions->links() !!}
                         </div>
                     </div>
                 </footer>
