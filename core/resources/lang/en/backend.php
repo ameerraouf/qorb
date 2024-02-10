@@ -690,5 +690,21 @@ return array(
     'websiteUptoDate' => 'Your website is up to date and has the latest version.',
     'updateInProgress' => 'Update in progress please wait',
     'updateCompleted' => 'The website has been updated to the latest version.',
+    'action' => 'action',
+    'packages' => 'Packages',
+    'packageTitle' => 'Package Title',
+    'advantages' => 'Advantages',
+    'price' => 'Price',
+    
+    'roles' => 'Roles',
+    'role' => 'Role',
+    'vbMap' => 'Evaluation of vb map',
+    'Status' => 'Status Reports',
+    'Session' => 'Session Reports',
+    'Consulting' => 'Consulting Reports',
+    'Treatment' => 'Treatment plan',
+    'final' => 'Final Report',
+
+
 
 );
