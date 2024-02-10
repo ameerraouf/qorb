@@ -627,7 +627,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 row">
+                <div class="col-12 row row-gap-24">
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="box-package">
                             <h3 class="title">
@@ -778,4 +778,158 @@
     </section>
     <!-- نهاية صفحة الباقات -->
 
+    <!-- بداية صفحة المجتمع -->
+    <section class="content-row-no-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                <div class="home-row-head">
+                <h2 class="heading">المجتمع</h2>
+            </div>
+            <h4 class="text-black">النقاشات الحديثة:</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="boxes-faq">
+                        <a href="#" class="box-faq">
+                            <div class="content">
+                                <img src="https://placehold.co/400" alt="" class="img">
+                                <h3 class="title">
+                                تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال 
+                                </h3>
+                            </div>
+                            <div class="footer-box">
+                                <span class="name">
+                                    باسم جابر
+                                </span>
+                                <div class="btns">
+                                    <span class="btn">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                        5
+                                    </span>
+                                    <span class="btn">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                        5
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="box-faq">
+                            <div class="content">
+                                <img src="https://placehold.co/400" alt="" class="img">
+                                <h3 class="title">
+                                تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال 
+                                </h3>
+                            </div>
+                            <div class="footer-box">
+                                <span class="name">
+                                    باسم جابر
+                                </span>
+                                <div class="btns">
+                                    <span class="btn">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                        5
+                                    </span>
+                                    <span class="btn">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                        5
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="box-faq">
+                            <div class="content">
+                                <img src="https://placehold.co/400" alt="" class="img">
+                                <h3 class="title">
+                                تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال 
+                                </h3>
+                            </div>
+                            <div class="footer-box">
+                                <span class="name">
+                                    باسم جابر
+                                </span>
+                                <div class="btns">
+                                    <span class="btn">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                        5
+                                    </span>
+                                    <span class="btn">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                        5
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- نهاية صفحة المجتمع -->
+    <!-- بداية صفحة عرض السؤال -->
+    <section class="content-row-no-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                <h4 class="text-main-color mt-0">عنوان السؤال</h4>
+                <div class="header-faq">
+                    <div class="info-user">
+                    <img src="https://placehold.co/400" alt="" class="img">
+                    <div class="data">
+                        <span class="item">
+                            باسم جابر
+                        </span>
+                        <span class="date">
+                            2022/2/2
+                        </span>
+                    </div>
+                </div>
+                <div class="data">
+                    <span class="item">
+                        <span class="title-item">
+                            عدد الزيارات:
+                        </span>
+                        55
+                    </span>
+                    <span class="item">
+                        <span class="title-item">
+                            عدد التعليقات:
+                        </span>
+                        55
+                    </span>
+                </div>
+                </div>
+                <h5 class="text-black">الردود:</h5>
+                       <div class="boxes-faq">
+                       <div class="box-comment">
+                            <div class="info-user">
+                            <img src="https://placehold.co/400" alt="" class="img">
+                                <span class="name">باسم جابر</span>
+                            </div>
+                            <p class="content">
+                            تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد 
+                            </p>
+                        </div>
+                       <div class="box-comment">
+                            <div class="info-user">
+                            <img src="https://placehold.co/400" alt="" class="img">
+                                <span class="name">باسم جابر</span>
+                            </div>
+                            <p class="content">
+                            تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد تجربة رد 
+                            </p>
+                        </div>
+                       </div>
+                       <div class="box-add-comment">
+                        <textarea name="" class="form-control" placeholder="أكتب ردك"></textarea>
+                        <button class="btn btn-theme">
+                            إرسال الرد
+                        </button>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- نهاية صفحة عرض السؤال -->
 @endsection
