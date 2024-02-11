@@ -75,7 +75,7 @@
                     <div class="offset-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-primary m-t"><i class="material-icons">
                                 &#xe31b;</i> {!! __('backend.update') !!}</button>
-                        <a href="{{route("financial-transactions")}}"
+                        <a href="{{route("CommonQuestions")}}"
                            class="btn btn-default m-t"><i class="material-icons">
                                 &#xe5cd;</i> {!! __('backend.cancel') !!}</a>
                     </div>

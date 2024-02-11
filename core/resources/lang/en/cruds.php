@@ -18,5 +18,6 @@ return array(
         "Question_EN" => "Question in English",
         "Answer_AR" => "Answer in Arabic",
         "Answer_EN" => "Answer in English",
+        "answer en" => "Answer in English",
     ],
 );

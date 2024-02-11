@@ -166,6 +166,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'answer_en' => 'Answer in English.',
+        'question_en' => 'Question in English.',
+        'question_ar' => 'Question in Arabic.',
+        'answer_ar' => 'Answer in Arabic.',
+    ],
 
 ];

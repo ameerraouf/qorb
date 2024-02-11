@@ -614,7 +614,7 @@ class TopicsController extends Controller
                     // meta info
                     $Topic->{"seo_title_" . $ActiveLanguage->code} = $request->{"title_" . $ActiveLanguage->code};
                     $Topic->{"seo_description_" . $ActiveLanguage->code} = mb_substr(strip_tags(stripslashes($request->{"details_" . $ActiveLanguage->code})), 0, 165, 'UTF-8');
-                    $Topic->{"seo_url_slug_" . $ActiveLanguage->code} = Helper::URLSlug($request->{"title_" . $ActiveLanguage->code}, "topic", 0);
+                    $Topic->{"seo_url_slug_" . $ActiveLanguage->code} = Helper::URLSlug($request->{"title_en"}, "topic", 0);
 
                 }
             }
