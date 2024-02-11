@@ -13,5 +13,8 @@ Route::post('/Register/submit', [TeacherLoginController::class, 'store'])->name(
 // Route::get('/teacherhome', function () {
 //     return 'hello';
 // })->name('teacherhome');
-Route::get('/teacherhome', [HomeController::class, 'index'])->name('teacher.teacherhome');
+Route::group(['middleware'=>'auth:teacher'],function(){
+
+    Route::get('/teacherhome', [HomeController::class, 'index'])->name('teacher.teacherhome');
+});
 //
