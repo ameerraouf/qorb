@@ -179,7 +179,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="home-row-head">
-                                <h2 class="heading">الأسئلة الشائعة</h2>
+                                <h2 class="heading">{{ __('cruds.CommonQuestions.Title') }}</h2>
                             </div>
                         </div>
                     </div>
