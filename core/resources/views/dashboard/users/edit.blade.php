@@ -87,7 +87,7 @@
                     </div>
                 </div>
 
-                @if(@Auth::user()->permissionsGroup->webmaster_status)
+                {{-- @if(@Auth::user()->permissionsGroup->webmaster_status)
                     <div class="form-group row">
                         <label for="permissions1"
                                class="col-sm-2 form-control-label">{!!  __('backend.Permission') !!}</label>
@@ -128,7 +128,7 @@
                     {!! Form::hidden('permissions_id',$Users->permissions_id) !!}
                     {!! Form::hidden('status',$Users->status) !!}
 
-                @endif
+                @endif --}}
 
 
                 <div class="form-group row m-t-md">

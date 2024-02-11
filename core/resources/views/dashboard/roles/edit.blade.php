@@ -41,11 +41,21 @@ padding: 0.2rem;
                 {{Form::open(['route'=>['rolesUpdate',$role->id],'method'=>'POST'])}}
 
                 <div class="form-group row">
-                    <label for="role" class="col-sm-2 form-control-label">{{ __('backend.role') }}</label>
+                    <label for="role" class="col-sm-2 form-control-label">{{ __('backend.roleAR') }}</label>
                     <div class="col-sm-10">
-                        {!! Form::text('role',$role->name, array('placeholder' => '','class' => 'form-control','id'=>'role')) !!}
-                        @if ($errors->has('role'))
-                            <div class="text-danger">{{ $errors->first('role') }}</div>
+                        {!! Form::text('role_ar',$role->role_ar, array('placeholder' => '','class' => 'form-control','id'=>'role_ar')) !!}
+                        @if ($errors->has('role_ar'))
+                            <div class="text-danger">{{ $errors->first('role_ar') }}</div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="role" class="col-sm-2 form-control-label">{{ __('backend.roleEN') }}</label>
+                    <div class="col-sm-10">
+                        {!! Form::text('role_en',$role->role_en, array('placeholder' => '','class' => 'form-control','id'=>'role_en')) !!}
+                        @if ($errors->has('role_en'))
+                            <div class="text-danger">{{ $errors->first('role_en') }}</div>
                         @endif
                     </div>
                 </div>
@@ -128,7 +138,7 @@ padding: 0.2rem;
                     <div class="offset-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-primary m-t"><i class="material-icons">
                                 &#xe31b;</i> {!! __('backend.update') !!}</button>
-                        <a href="{{route("financial-transactions")}}"
+                        <a href="{{route("roles")}}"
                            class="btn btn-default m-t"><i class="material-icons">
                                 &#xe5cd;</i> {!! __('backend.cancel') !!}</a>
                     </div>

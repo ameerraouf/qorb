@@ -68,13 +68,15 @@ class RoleController extends Controller
         }
 
         $this->validate($request, [
-            'role' => 'required|string',
+            'role_ar' => 'required|string',
+            'role_en' => 'required|string',
             'permissions' => 'required|array|min:1',
         ]);
                 
         try {
             $role = new Role;
-            $role->role = $request->role;
+            $role->role_ar = $request->role_ar;
+            $role->role_en = $request->role_en;
             $role->permissions = $request->permissions;
             $role->save();
             return redirect()->action('Dashboard\RoleController@index')->with('doneMessage', __('backend.addDone'));
@@ -125,7 +127,8 @@ class RoleController extends Controller
         }
 
         $this->validate($request, [
-            'role' => 'required|string',
+            'role_ar' => 'required|string',
+            'role_en' => 'required|string',
             'permissions' => 'required|array|min:1',
         ]);
 
@@ -134,7 +137,8 @@ class RoleController extends Controller
         if (!empty($role)) {
             try {
 
-                $role->role = $request->role;
+                $role->role_ar = $request->role_ar;
+                $role->role_en = $request->role_en;
                 $role->permissions = $request->permissions;
                 $role->save();
                 return redirect()->action('Dashboard\RoleController@index', $id)->with('doneMessage', __('backend.saveDone'));
