@@ -108,5 +108,9 @@ Route::get('/{lang?}/{seo_url_slug}', [HomeController::class, 'SEOByLang'])->nam
 
 // ..if page by name and language( ex: www.site.com/ar/about )
 Route::get('/{lang?}/topic/{id}', [HomeController::class, 'topicByLang'])->name('FrontendPageByLang');
+
+Route::get('/common-questions', [HomeController::class, 'CommonQuestions'])->name('FrontendCommonQuestions');
+Route::get('/{lang?}/common-questions', [HomeController::class, 'CommonQuestionsByLang'])->name('FrontendCommonQuestionsByLang');
+
 // .. End of Frontend Route
 

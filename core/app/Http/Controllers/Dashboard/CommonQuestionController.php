@@ -102,26 +102,26 @@ class CommonQuestionController extends Controller
         }
         $question = CommonQuestion::find($id);
         if (!empty($question)) {
+
+            $this->validate($request, [
+                'question_ar' => 'required|max:256',
+                'question_en' => 'required|max:256',
+                'answer_ar' => ['required','max:1000',new CheckSpaces],
+                'answer_en' => ['required','max:1000',new CheckSpaces],
+            ]);
+
             try {
-
-                $this->validate($request, [
-                    'question_ar' => 'required|max:256',
-                    'question_en' => 'required|max:256',
-                    'answer_ar' => ['required','max:1000',new CheckSpaces],
-                    'answer_en' => ['required','max:1000',new CheckSpaces],
-                ]);
-
                 $question->question_ar = $request->question_ar;
                 $question->question_en = $request->question_en;
                 $question->answer_ar = $request->answer_ar;
                 $question->answer_en = $request->answer_en;
                 $question->save();
-                return redirect()->action('Dashboard\CommonQuestionController@index', $id)->with('doneMessage', __('backend.saveDone'));
+                return redirect()->action('Dashboard\CommonQuestionController@index')->with('doneMessage', __('backend.saveDone'));
             } catch (\Exception $e) {
 
             }
         }
-        return redirect()->action('Dashboard\CommonQuestionController@index');
+        return redirect()->action('Dashboard\CommonQuestionController@edit',$id)->with('errorMessage', __('backend.error'));
     }
 
     public function destroy($id)
