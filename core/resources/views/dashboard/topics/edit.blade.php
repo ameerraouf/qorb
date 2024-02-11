@@ -97,15 +97,15 @@ if ($WebmasterSection->$title_var != "") {
                 $tab_6 = "";
                 $tab_7 = "";
             }
-            if (Session::get('activeTab') == "maps") {
-                $tab_1 = "";
-                $tab_2 = "";
-                $tab_3 = "";
-                $tab_4 = "";
-                $tab_5 = "active";
-                $tab_6 = "";
-                $tab_7 = "";
-            }
+            // if (Session::get('activeTab') == "maps") {
+            //     $tab_1 = "";
+            //     $tab_2 = "";
+            //     $tab_3 = "";
+            //     $tab_4 = "";
+            //     $tab_5 = "active";
+            //     $tab_6 = "";
+            //     $tab_7 = "";
+            // }
             if (Session::get('activeTab') == "files") {
                 $tab_1 = "";
                 $tab_2 = "";
@@ -177,7 +177,7 @@ if ($WebmasterSection->$title_var != "") {
                 @endif
 
 
-                @if($WebmasterSection->maps_status)
+                {{-- @if($WebmasterSection->maps_status)
                     <li class="nav-item inline">
                         <a class="nav-link  {{ $tab_5 }}" id="mapTabLink" href data-toggle="tab"
                            data-target="#tab_maps">
@@ -189,7 +189,7 @@ if ($WebmasterSection->$title_var != "") {
                     </span>
                         </a>
                     </li>
-                @endif
+                @endif --}}
 
                 @if($WebmasterSection->related_status)
                     <li class="nav-item inline">
@@ -1123,7 +1123,7 @@ if ($WebmasterSection->$title_var != "") {
                 @include('dashboard.topics.tabs.comments')
                 @include('dashboard.topics.tabs.files')
                 @include('dashboard.topics.tabs.related')
-                @include('dashboard.topics.tabs.maps')
+                {{-- @include('dashboard.topics.tabs.maps') --}}
                 @include('dashboard.topics.tabs.seo')
             </div>
         </div>
