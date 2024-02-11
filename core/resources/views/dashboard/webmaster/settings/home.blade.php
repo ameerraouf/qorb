@@ -24,15 +24,15 @@
                     <div class="nav-active-border left b-primary">
                         <ul class="nav nav-sm">
 
+                            {{-- <li class="nav-item"> --}}
+                                {{-- <a class="nav-link block {{ ( Session::get('active_tab') == 'frontSettingsTab' || Session::get('active_tab') =="") ? 'active' : '' }}" --}}
+                                   {{-- href --}}
+                                   {{-- data-toggle="tab" data-target="#tab-5" --}}
+                                   {{-- onclick="clicked_tab('frontSettingsTab')"> --}}
+                                    {{-- &nbsp; {!!  __('backend.frontSettings') !!}</a> --}}
+                            {{-- </li> --}}
                             <li class="nav-item">
-                                <a class="nav-link block {{ ( Session::get('active_tab') == 'frontSettingsTab' || Session::get('active_tab') =="") ? 'active' : '' }}"
-                                   href
-                                   data-toggle="tab" data-target="#tab-5"
-                                   onclick="clicked_tab('frontSettingsTab')">
-                                    &nbsp; {!!  __('backend.frontSettings') !!}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link block {{  ( Session::get('active_tab') == 'languageSettingsTab') ? 'active' : '' }}"
+                                <a class="nav-link block {{  ( Session::get('active_tab') == 'languageSettingsTab' || Session::get('active_tab') =="") ? 'active' : '' }}"
                                    href
                                    data-toggle="tab" data-target="#tab-2"
                                    onclick="clicked_tab('languageSettingsTab')">
@@ -71,24 +71,24 @@
                                    onclick="clicked_tab('googleTagsTab')">
                                     &nbsp; {!!  __('backend.googleTags') !!}</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link block {{  ( Session::get('active_tab') == 'googleMapsTab') ? 'active' : '' }}"
                                    href data-toggle="tab" data-target="#tab-10"
                                    onclick="clicked_tab('googleMapsTab')">
                                     &nbsp; {!!  __('backend.googleMaps') !!}</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link block {{  ( Session::get('active_tab') == 'analyticsTab') ? 'active' : '' }}"
                                    href data-toggle="tab" data-target="#tab-11"
                                    onclick="clicked_tab('analyticsTab')">
                                     &nbsp; {!!  __('backend.analyticsSettings') !!}</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link block {{  ( Session::get('active_tab') == 'appsSettingsTab') ? 'active' : '' }}"
                                    href data-toggle="tab" data-target="#tab-1"
                                    onclick="clicked_tab('appsSettingsTab')">
                                     &nbsp; {!!  __('backend.appsSettings') !!}</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link block {{  ( Session::get('active_tab') == 'textEditorTab') ? 'active' : '' }}"
                                    href data-toggle="tab" data-target="#tab-12"
@@ -117,7 +117,7 @@
                             class="material-icons">&#xe31b;</i> {{ __('backend.update') }}</button>
 
 
-                    @include('dashboard.webmaster.settings.front')
+                    {{-- @include('dashboard.webmaster.settings.front') --}}
                     @include('dashboard.webmaster.settings.language')
                     @include('dashboard.webmaster.settings.seo')
                     @include('dashboard.webmaster.settings.login')
@@ -125,9 +125,9 @@
                     @include('dashboard.webmaster.settings.mail')
                     @include('dashboard.webmaster.settings.captcha')
                     @include('dashboard.webmaster.settings.tags')
-                    @include('dashboard.webmaster.settings.maps')
+                    {{-- @include('dashboard.webmaster.settings.maps') --}}
                     @include('dashboard.webmaster.settings.analytics')
-                    @include('dashboard.webmaster.settings.apps')
+                    {{-- @include('dashboard.webmaster.settings.apps') --}}
                     @include('dashboard.webmaster.settings.other')
                     @include('dashboard.webmaster.settings.update')
                 </div>

@@ -41,7 +41,7 @@ return array(
     'profile' => 'Profile',
     'search' => 'Search',
     'new' => 'New',
-    'add' => '&nbsp;&nbsp;Add&nbsp;&nbsp;',
+    'add' => 'Add',
     'update' => 'Save Changes',
     'save' => 'Save',
     'saveOrder' => 'Save Order',
@@ -698,6 +698,8 @@ return array(
     
     'roles' => 'Roles',
     'role' => 'Role',
+    'roleAR' => 'Role [Arabic]',
+    'roleEN' => 'Role [English]',
     'vbMap' => 'Evaluation of vb map',
     'Status' => 'Status Reports',
     'Session' => 'Session Reports',
@@ -706,5 +708,6 @@ return array(
     'final' => 'Final Report',
 
 
-
+    'employees' => 'Employees',
+    'phone' => 'Phone',
 );

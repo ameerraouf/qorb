@@ -10,37 +10,29 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * This namespace is applied to your controller routes.
-     *
-     * In addition, it is set as the URL generator's root namespace.
-     *
-     * @var string
-     */
+
     protected $namespace = 'App\Http\Controllers';
     protected $dashboardNamespace = 'App\Http\Controllers\Dashboard';
     protected $apisNamespace = 'App\Http\Controllers\APIs';
+    protected $teacherNamespace = 'App\Http\Controllers\Teacher';
 
-    /**
-     * The path to your application's "home" route.
-     *
-     * Typically, users are redirected here after authentication.
-     *
-     * @var string
-     */
+
     public const HOME = '/home';
+    public const Teacher_DASHBOARD = '/teacherhome';
 
-    /**
-     * Define your route model bindings, pattern filters, and other route configuration.
-     */
+
     public function boot(): void
     {
         $this->configureRateLimiting();
 
         $this->mapApiRoutes();
         $this->mapDashboardRoutes();
+        $this->mapTeacherRoutes();
         $this->mapApisRoutes();
         $this->mapWebRoutes();
+        // Route::middleware('web')
+        //         ->as('teacher.')
+        //         ->group(base_path('routes/teacher.php'));
     }
 
     /**
@@ -55,14 +47,6 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
     protected function mapWebRoutes()
     {
         Route::middleware('web')
@@ -99,6 +83,15 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->dashboardNamespace)
             ->group(base_path('routes/dashboard.php'));
     }
+    protected function mapTeacherRoutes()
+    {
+        Route::prefix(env('Teacher_PATH'))
+            // ->middleware('auth:teacher')
+            ->namespace($this->teacherNamespace)
+            ->group(base_path('routes/teacher.php'));
+    }
+
+
 
     /**
      * Define the "APIs" routes for the application.
