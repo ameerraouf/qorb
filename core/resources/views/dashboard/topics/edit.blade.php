@@ -1065,7 +1065,7 @@ if ($WebmasterSection->$title_var != "") {
                         @endif
                         {{--End of -- Additional Feilds--}}
 
-                        @if($WebmasterSection->type ==0)
+                        {{-- @if($WebmasterSection->type ==0)
                             <div class="form-group row">
                                 <label for="link_status"
                                        class="col-sm-2 form-control-label">{!!  __('backend.pageCustomForm') !!}</label>
@@ -1079,7 +1079,7 @@ if ($WebmasterSection->$title_var != "") {
                                     </select>
                                 </div>
                             </div>
-                        @endif
+                        @endif --}}
 
                         @if(@Auth::user()->permissionsGroup->active_status)
                             @if($WebmasterSection->case_status)

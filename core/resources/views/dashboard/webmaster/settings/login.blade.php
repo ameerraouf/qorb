@@ -6,7 +6,7 @@
     <div class="p-a-md col-md-12">
 
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label>{{ __('backend.controlPanelPath') }} : </label>
             <div class="pull-right text-muted" dir="ltr">
                 {{ env("APP_URL") }}/
@@ -97,7 +97,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+
         <div class="row m-t-2">
             <div class="form-group col-md-4">
                 <label><h6>{{ __('backend.loginWithTwitter') }}
@@ -251,7 +252,7 @@
                 </div>
             </div>
         </div>
-        <div class="row m-t-2">
+        {{-- <div class="row m-t-2">
             <div class="form-group col-md-4">
                 <label><h6>{{ __('backend.loginWithGitHub') }}
                         <a target="_blank"
@@ -352,6 +353,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>

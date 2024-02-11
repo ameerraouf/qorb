@@ -64,7 +64,13 @@
                                         {!! Form::hidden('row_ids[]',$value->id, array('class' => 'form-control row_no')) !!}
                                     </label>
                                 </td>
-                                <td class="text-center">{{ $value->role }}</td>
+                                <td class="text-center">
+                                    @if(app()->getLocale() == 'ar')
+                                        {{ $value->role_ar }}
+                                    @else
+                                        {{ $value->role_en }}
+                                    @endif
+                                </td>
                                 <td class="text-center">
                                     @foreach($value->permissions as $permission)
                                         @if($permission == 1)

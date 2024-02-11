@@ -1,5 +1,5 @@
 
-<div class="tab-pane {{  ( Session::get('active_tab') == 'languageSettingsTab') ? 'active' : '' }}"
+<div class="tab-pane {{  ( Session::get('active_tab') == 'languageSettingsTab' || Session::get('active_tab') =="") ? 'active' : '' }}"
      id="tab-2">
     <div class="p-a-md"><h5>{!!  __('backend.languageSettings') !!}</h5></div>
 

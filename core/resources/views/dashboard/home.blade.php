@@ -227,7 +227,7 @@
                                 </div>
                                 <div class="col-sm-4 dker">
                                     <div class="box-header">
-                                        <h3>{{ __('backend.reports') }}</h3>
+                                        <h3>{{ __('backend.visitorsAnalytics') }}</h3>
                                     </div>
                                     <div class="box-body">
                                         <p class="text-muted">
@@ -537,7 +537,7 @@
                             </div>
                         @endif
                     @endif
-                    @if(Helper::GeneralWebmasterSettings("calendar_status"))
+                    {{-- @if(Helper::GeneralWebmasterSettings("calendar_status"))
                         @if(@Auth::user()->permissionsGroup->calendar_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
                                 <div class="box m-b-0" style="min-height: 370px">
@@ -592,7 +592,7 @@
                                 </div>
                             </div>
                         @endif
-                    @endif
+                    @endif --}}
                     @if(Helper::GeneralWebmasterSettings("newsletter_status"))
                         @if(@Auth::user()->permissionsGroup->newsletter_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
