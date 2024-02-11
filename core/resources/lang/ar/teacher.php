@@ -11,6 +11,6 @@ return array(
     'sign' => 'انشاء حساب',
     'name' => 'الاسم',
     'password_confirmation' => 'تاكيد كلمه المرور',
-    'teacher' => 'حساب مدرس',
+    'teacher' => 'حساب مدرسه',
     'mother' => 'حساب ام',
 );

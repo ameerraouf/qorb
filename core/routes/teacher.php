@@ -8,7 +8,7 @@ Route::get('/login', [TeacherLoginController::class, 'showLoginForm'])->name('te
 Route::post('/login/submit', [TeacherLoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [TeacherLoginController::class, 'logout'])->name('teacher.logout');
 Route::get('/Register', [TeacherLoginController::class, 'showRegisterForm'])->name('teacher.register');
-// Route::post('/Register/submit', [TeacherLoginController::class, 'store'])->name('Register.submit');
+Route::post('/Register/submit', [TeacherLoginController::class, 'store'])->name('Register.submit');
 
 // Route::get('/teacherhome', function () {
 //     return 'hello';

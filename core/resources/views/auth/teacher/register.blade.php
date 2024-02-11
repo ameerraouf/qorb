@@ -14,9 +14,9 @@
             <div class="m-y text-muted text-center">
                 {{ __('teacher.registerToControlteacher') }}
             </div>
-            <form name="form" method="POST" action="{{ url('/'.env('Teacher_PATH').'/register/submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;">
-            {{-- <form name="form" method="POST" action="{{ route('teacher.register.submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;"> --}}
-                @csrf
+            <form name="form" method="POST" action="{{ route('Register.submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;">
+                {{-- <form name="form" method="POST" action="{{ url('/'.env('Teacher_PATH').'/register/submit') }}" > --}}
+                    {{ csrf_field() }}
                 @if($errors ->any())
                     <div class="alert alert-danger m-b-0">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -44,7 +44,7 @@
                     <input type="password" name="password_confirmation" class="md-input"  required>
                     <label>{{ __('teacher.password_confirmation') }}</label>
                 </div>
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="md-form-group float-label {{ $errors->has('type') ? ' has-error' : '' }}">
                         <input type="radio" value="teacher" name="type" class="md-input"  required>
                         <label>{{ __('teacher.teacher') }}</label>
@@ -55,7 +55,7 @@
                         <input type="radio" value="mother" name="type" class="md-input"  required>
                         <label>{{ __('teacher.mother') }}</label>
                     </div>
-                </div>
+                </div> --}}
                 @if ($errors->has('password'))
                     <span class="help-block">
                         <strong>{{ $errors->first('password') }}</strong>
@@ -73,7 +73,7 @@
                             class="primary"></i> {{ __('backend.keepMeSignedIn') }}
                     </label>
                 </div> --}}
-                <button type="submit" id="register_form_submit" class="btn primary btn-block p-x-md m-b">{{ __('teacher.sign') }}</button>
+                <button type="submit"  class="btn primary btn-block p-x-md m-b">{{ __('teacher.sign') }}</button>
             </form>
 
 

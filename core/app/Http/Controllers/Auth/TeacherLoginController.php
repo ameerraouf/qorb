@@ -67,10 +67,10 @@ class TeacherLoginController extends Controller
         $requestData = $request->validated();
         $teacher = Teacher::create([
             'name'         => $request->name,
-            'phone'        => $request->phone,
+            'phone'        => $request->phone??'0000',
             'email'        => $request->email,
             'password'     => bcrypt($request->password),
-            'type'     => $request->type,
+            // 'type'     => $request->type,
         ]);
         auth('teacher')->login($teacher);
         return redirect()->route('teacher.teacherhome');

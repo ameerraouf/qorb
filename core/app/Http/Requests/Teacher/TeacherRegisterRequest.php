@@ -23,31 +23,31 @@ class TeacherRegisterRequest extends FormRequest
     {
         return [
             'name'     =>'required|min:3|string',
-            'phone'    => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:11|unique:teachers',
+            // 'phone'    => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:11|unique:teachers',
             'email'    => ['required', 'string', 'email', 'max:255', 'unique:teachers'],
             'password' => ['required','confirmed','min:6','max:10'],
-            'type'     => ['in:teacher,mother']
+            // 'type'     => ['in:teacher,mother']
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'name.required'   => trans('Admin\validation.required'),
-            'email.required'       => trans('Admin\validation.required'),
-            'phone.required'       => trans('Admin\validation.required'),
-            'password.required'    => trans('Admin\validation.required'),
+    // public function messages()
+    // {
+    //     return [
+    //         'name.required'   => trans('Admin\validation.required'),
+    //         'email.required'       => trans('Admin\validation.required'),
+    //         'phone.required'       => trans('Admin\validation.required'),
+    //         'password.required'    => trans('Admin\validation.required'),
 
-            'name.min'        => trans('Admin\validation.min'),
-            'phone.min'            => trans('Admin\validation.min'),
-            'password.min'         => trans('Admin\validation.min'),
+    //         'name.min'        => trans('Admin\validation.min'),
+    //         'phone.min'            => trans('Admin\validation.min'),
+    //         'password.min'         => trans('Admin\validation.min'),
 
-            'phone.regex'          => trans('Admin\validation.regex'),
+    //         'phone.regex'          => trans('Admin\validation.regex'),
 
-            'email.email'          => trans('Admin\validation.email'),
-            'email.unique'         => trans('Admin\validation.unique'),
-            'phone.unique'         => trans('Admin\validation.unique'),
-            'password.confirmed'   => trans('Admin\validation.confirmed'),
-        ];
-    }
+    //         'email.email'          => trans('Admin\validation.email'),
+    //         'email.unique'         => trans('Admin\validation.unique'),
+    //         'phone.unique'         => trans('Admin\validation.unique'),
+    //         'password.confirmed'   => trans('Admin\validation.confirmed'),
+    //     ];
+    // }
 }
