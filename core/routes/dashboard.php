@@ -20,6 +20,10 @@ use App\Http\Controllers\Dashboard\WebmasterSectionsController;
 use App\Http\Controllers\Dashboard\WebmasterSettingsController;
 use App\Http\Controllers\Dashboard\FinancialTransactionController;
 
+use App\Http\Controllers\Dashboard\PackageController;
+use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\EmployeeController;
+
 // Admin Home
 Route::get('/', [DashboardController::class, 'index'])->name('adminHome');
 //Search
@@ -265,6 +269,32 @@ Route::post('/menus/{id}/update', [MenusController::class, 'update'])->name('men
 Route::get('/menus/destroy/{id}', [MenusController::class, 'destroy'])->name('menusDestroy');
 Route::post('/menus/updateAll', [MenusController::class, 'updateAll'])->name('menusUpdateAll');
 
+// Packages
+Route::get('/packages', [PackageController::class, 'index'])->name('packages');
+Route::get('/packages/create/', [PackageController::class, 'create'])->name('packagesCreate');
+Route::post('/packages/store', [PackageController::class, 'store'])->name('packagesStore');
+Route::get('/packages{id}/edit', [PackageController::class, 'edit'])->name('packagesEdit');
+Route::post('packages/{id}/update', [PackageController::class, 'update'])->name('packagesUpdate');
+Route::get('/packages/destroy/{id}', [PackageController::class, 'destroy'])->name('packagesDestroy');
+Route::post('/packages/updateAll', [PackageController::class, 'updateAll'])->name('packagesUpdateAll');
+
+// Roles
+Route::get('/roles', [RoleController::class, 'index'])->name('roles');
+Route::get('/roles/create/', [RoleController::class, 'create'])->name('rolesCreate');
+Route::post('/roles/store', [RoleController::class, 'store'])->name('rolesStore');
+Route::get('/roles{id}/edit', [RoleController::class, 'edit'])->name('rolesEdit');
+Route::post('roles/{id}/update', [RoleController::class, 'update'])->name('rolesUpdate');
+Route::get('/roles/destroy/{id}', [RoleController::class, 'destroy'])->name('rolesDestroy');
+Route::post('/roles/updateAll', [RoleController::class, 'updateAll'])->name('rolesUpdateAll');
+
+// Employees
+Route::get('/employees', [EmployeeController::class, 'index'])->name('employees');
+Route::get('/employees/create/', [EmployeeController::class, 'create'])->name('employeesCreate');
+Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employeesStore');
+Route::get('/employees{id}/edit', [EmployeeController::class, 'edit'])->name('employeesEdit');
+Route::post('employees/{id}/update', [EmployeeController::class, 'update'])->name('employeesUpdate');
+Route::get('/employees/destroy/{id}', [EmployeeController::class, 'destroy'])->name('employeesDestroy');
+Route::post('/employees/updateAll', [EmployeeController::class, 'updateAll'])->name('employeesUpdateAll');
 
 Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
 Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
