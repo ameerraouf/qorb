@@ -14,8 +14,8 @@
             <div class="m-y text-muted text-center">
                 {{ __('teacher.registerToControlteacher') }}
             </div>
-            {{-- <form name="form" method="POST" action="{{ url('/'.env('Teacher_PATH').'/register/submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;"> --}}
-            <form name="form" method="POST" action="{{ route('teacher.register.submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;">
+            <form name="form" method="POST" action="{{ url('/'.env('Teacher_PATH').'/register/submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;">
+            {{-- <form name="form" method="POST" action="{{ route('teacher.register.submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;"> --}}
                 @csrf
                 @if($errors ->any())
                     <div class="alert alert-danger m-b-0">
