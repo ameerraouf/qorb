@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Teacher\TeacherRegisterRequest;
+use App\Models\Teacher;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -53,5 +55,24 @@ class TeacherLoginController extends Controller
     {
         Auth::guard('teacher')->logout();
         return redirect()->route('teacher.login');
+    }
+
+
+    public function showRegisterForm()
+    {
+        return view('auth.teacher.register');
+    }
+    public function store(TeacherRegisterRequest $request)
+    {
+        $requestData = $request->validated();
+        $teacher = Teacher::create([
+            'name'         => $request->name,
+            'phone'        => $request->phone,
+            'email'        => $request->email,
+            'password'     => bcrypt($request->password),
+            'type'     => $request->type,
+        ]);
+        auth('teacher')->login($teacher);
+        return redirect()->route('teacher.teacherhome');
     }
 }

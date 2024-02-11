@@ -12,10 +12,11 @@
                 @endif
             </div>
             <div class="m-y text-muted text-center">
-                {{ __('teacher.signedInToControlteacher') }}
+                {{ __('teacher.registerToControlteacher') }}
             </div>
-            <form name="form" method="POST" action="{{ url('/'.env('Teacher_PATH').'/login/submit') }}" onsubmit="document.getElementById('login_form_submit').disabled = true; return true;">
-                {{ csrf_field() }}
+            {{-- <form name="form" method="POST" action="{{ url('/'.env('Teacher_PATH').'/register/submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;"> --}}
+            <form name="form" method="POST" action="{{ route('teacher.register.submit') }}" onsubmit="document.getElementById('register_form_submit').disabled = true; return true;">
+                @csrf
                 @if($errors ->any())
                     <div class="alert alert-danger m-b-0">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -27,34 +28,59 @@
                     </div>
                 @endif
 
+                <div class="md-form-group float-label {{ $errors->has('name') ? ' has-error' : '' }}">
+                    <input type="text" name="name" value="{{ old('name') }}" class="md-input" required>
+                    <label>{{ __('teacher.name') }}</label>
+                </div>
                 <div class="md-form-group float-label {{ $errors->has('email') ? ' has-error' : '' }}">
                     <input type="email" name="email" value="{{ old('email') }}" class="md-input" required>
                     <label>{{ __('backend.connectEmail') }}</label>
                 </div>
                 <div class="md-form-group float-label {{ $errors->has('password') ? ' has-error' : '' }}">
-                    <input type="password" name="password" class="md-input" required>
+                    <input type="password" name="password" class="md-input" value="{{ old('password') }}" required>
                     <label>{{ __('backend.connectPassword') }}</label>
+                </div>
+                <div class="md-form-group float-label {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                    <input type="password" name="password_confirmation" class="md-input"  required>
+                    <label>{{ __('teacher.password_confirmation') }}</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form-group float-label {{ $errors->has('type') ? ' has-error' : '' }}">
+                        <input type="radio" value="teacher" name="type" class="md-input"  required>
+                        <label>{{ __('teacher.teacher') }}</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="md-form-group float-label {{ $errors->has('type') ? ' has-error' : '' }}">
+                        <input type="radio" value="mother" name="type" class="md-input"  required>
+                        <label>{{ __('teacher.mother') }}</label>
+                    </div>
                 </div>
                 @if ($errors->has('password'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 @endif
-                @if(env('NOCAPTCHA_STATUS', false))
+                {{-- @if(env('NOCAPTCHA_STATUS', false))
                     <div class="form-group">
                         {!! NoCaptcha::renderJs(@Helper::currentLanguage()->code) !!}
                         {!! NoCaptcha::display() !!}
                     </div>
-                @endif
-                <div class="m-b-md text-left">
+                @endif --}}
+                {{-- <div class="m-b-md text-left">
                     <label class="md-check">
                         <input type="checkbox" name="remember"><i
                             class="primary"></i> {{ __('backend.keepMeSignedIn') }}
                     </label>
-                </div>
-                <button type="submit" id="login_form_submit" class="btn primary btn-block p-x-md m-b">{{ __('backend.signIn') }}</button>
+                </div> --}}
+                <button type="submit" id="register_form_submit" class="btn primary btn-block p-x-md m-b">{{ __('teacher.sign') }}</button>
             </form>
-            @if(env("FACEBOOK_STATUS") && env("FACEBOOK_ID") && env("FACEBOOK_SECRET"))
+
+
+            <a href="{{ route('teacher.login') }}" class="btn info btn-block text-left">
+                 {{ __('teacher.login') }}
+            </a>
+            {{-- @if(env("FACEBOOK_STATUS") && env("FACEBOOK_ID") && env("FACEBOOK_SECRET"))
                 <a href="{{ route('social.oauth', 'facebook') }}" class="btn btn-primary btn-block text-left">
                     <i class="fa fa-facebook"></i> {{ __('backend.loginWithFacebook') }}
                 </a>
@@ -85,16 +111,15 @@
                 </a>
             @endif
 
-            {{-- @if(Helper::GeneralWebmasterSettings("register_status")) --}}
-                {{-- <a href="{{ url('/'.env('Teacher_PATH').'/register') }}" class="btn info btn-block text-left"> --}}
-                <a href="{{ route('teacher.register') }}" class="btn info btn-block text-left">
+            @if(Helper::GeneralWebmasterSettings("register_status"))
+                <a href="{{ url('/'.env('BACKEND_PATH').'/register') }}" class="btn info btn-block text-left">
                     <i class="fa fa-user-plus"></i> {{ __('backend.createNewAccount') }}
                 </a>
-            {{-- @endif --}}
-            <div class="p-v-lg text-center">
+            @endif --}}
+            {{-- <div class="p-v-lg text-center">
                 <div class="m-t"><a href="{{ url('/'.env('BACKEND_PATH').'/password/reset') }}"
                                     class="text-primary _600">{{ __('backend.forgotPassword') }}</a></div>
-            </div>
+            </div> --}}
 
         </div>
 
