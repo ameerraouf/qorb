@@ -78,7 +78,13 @@
                         <select name="role_id" id="role_id" required class="form-control c-select">
                             <option value="">- - {!!  __('backend.role') !!} - -</option>
                             @foreach ($roles as $value)
-                                <option value="{{ $value->id  }}">{{ $value->role }}</option>
+                                <option value="{{ $value->id  }}">
+                                    @if(app()->getLocale() == 'ar')
+                                        {{ $value->role_ar }}
+                                    @else
+                                        {{ $value->role_en }}
+                                    @endif
+                                </option>
                             @endforeach
                         </select>
 

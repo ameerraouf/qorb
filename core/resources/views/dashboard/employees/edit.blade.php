@@ -104,7 +104,13 @@
                                         class="form-control c-select">
                                     <option value="">- - {!!  __('backend.role') !!} - -</option>
                                     @foreach ($roles as $value)
-                                        <option value="{{ $value->id  }}" {!! ($employee->role_id==$value->id) ? "selected='selected'":"" !!}>{{ $value->role }}</option>
+                                        <option value="{{ $value->id  }}" {!! ($employee->role_id==$value->id) ? "selected='selected'":"" !!}>
+                                            @if(app()->getLocale() == 'ar')
+                                                {{ $value->role_ar }}
+                                            @else
+                                                {{ $value->role_en }}
+                                            @endif
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
