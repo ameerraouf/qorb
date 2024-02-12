@@ -55,6 +55,7 @@
                             <th class="text-center" style="width:100px;">{{ __('teacher.childproblem') }}</th>
                             <th class="text-center" style="width:100px;">{{ __('teacher.attachment') }}</th>
                             <th class="text-center" style="width:200px;">{{ __('backend.action') }}</th>
+                            <th class="text-center" style="width:200px;">{{ __('backend.reports') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -88,10 +89,10 @@
                                             {!! strlen($child->problem_en) > 40 ? substr($child->problem_en, 0, 40) . '...' : $child->problem_en!!}
                                         @endif
                                     </td> --}}
-                                    <td>
+                                    <td class="h6 text-center">
                                         @if($child->media()->count() > 0)
                                             @foreach($child->media as $key=>$media)
-                                                <div class="col-md-4 " style="padding: 10px;">
+                                                <div class="col-md-6 " style="padding: 10px;">
                                                     @if (in_array($media->file_type, ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'], true))
                                                         <a href="{{ asset('uploads/children/' . $media->file_name) }}" class="btn btn-warning btn-sm " >
                                                             {{ __('teacher.image') }}{{ $key+1 }}
@@ -109,6 +110,26 @@
                                     </td>
                                     <td class="h6 text-center">
                                         @include('teacher.children.action')
+                                    </td>
+                                    <td class=" h6 text-center">
+                                        <div class="dropdown" >
+                                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              {{ __('teacher.reports') }}
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                                              {{-- <a class="dropdown-item" href="#">{{ __('teacher.reports') }}</a> --}}
+                                              <a class="dropdown-item" href="#">تقارير الجلسات</a>
+                                              <a class="dropdown-item" href="#">تقارير الحالة </a>
+                                              <a class="dropdown-item" href="#">تقارير الاستشارات</a>
+                                              <a class="dropdown-item" href="#">الخطة العلاجية</a>
+                                              <a class="dropdown-item" href="#">تقييم vbmap</a>
+                                              <a class="dropdown-item" href="#">التقرير النهائى</a>
+                                              <a class="dropdown-item" href="#">تقرير الكشف المبكر</a>
+
+
+                                            </div>
+                                          </div>
+
                                     </td>
 
                                 </tr>
