@@ -14,7 +14,7 @@
             <div class="m-y text-muted text-center">
                 {{ __('backend.signedInToControl') }}
             </div>
-            <form name="form" method="POST" action="{{ url('/'.env('BACKEND_PATH').'/login') }}" onsubmit="document.getElementById('login_form_submit').disabled = true; return true;">
+            <form name="form" method="POST" action="{{ url('/login') }}" onsubmit="document.getElementById('login_form_submit').disabled = true; return true;">
                 {{ csrf_field() }}
                 @if($errors ->any())
                     <div class="alert alert-danger m-b-0">

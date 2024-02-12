@@ -86,6 +86,18 @@
                         </small>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="permissions1"
+                           class="col-sm-2 form-control-label">{!!  __('backend.Role') !!}</label>
+                    <div class="col-sm-10">
+                        <select name="role" id="role" required class="form-control c-select">
+                            <option value="">- - {!!  __('backend.selectRole') !!} - -</option>
+                                <option {{ $Users->role == 'admin' ? 'selected' : ''  }} value="admin">{{ __('backend.Admin') }}</option>
+                                <option {{ $Users->role == 'specialist' ? 'selected' : ''  }} value="specialist">{{ __('backend.Specialist') }}</option>
+                        </select>
+
+                    </div>
+                </div>
 
                 {{-- @if(@Auth::user()->permissionsGroup->webmaster_status)
                     <div class="form-group row">

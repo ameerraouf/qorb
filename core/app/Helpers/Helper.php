@@ -103,7 +103,7 @@ class Helper
     // Menu array List
     static function MenuList($GroupId)
     {
-        return Menu::where('father_id', $GroupId)->where('status', 1)->orderby('row_no', 'asc')->get();
+        return Menu::where('father_id', $GroupId)->whereNotIn('id', [5, 7, 9, 6, 19, 8, 10,])->where('status', 1)->orderby('row_no', 'asc')->get();
     }
 
     // detect browser

@@ -695,7 +695,7 @@ return array(
     'packageTitle' => 'Package Title',
     'advantages' => 'Advantages',
     'price' => 'Price',
-    
+
     'roles' => 'Roles',
     'role' => 'Role',
     'roleAR' => 'Role [Arabic]',
@@ -710,4 +710,9 @@ return array(
 
     'employees' => 'Employees',
     'phone' => 'Phone',
+    'Children' => 'Children',
+    'Role' => 'Role',
+    'selectRole' => 'Select Role',
+    'Admin' => 'Admin',
+    'Specialist' => 'Specialist',
 );
