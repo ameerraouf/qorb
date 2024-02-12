@@ -72,7 +72,13 @@
                                 </td>
                                 <td class="text-center">{{ $value->email }}</td>
                                 <td class="text-center">{{ $value->phone }}</td>
-                                <td class="text-center">{{ $value->role->role }}</td>
+                                <td class="text-center">
+                                    @if(app()->getLocale() == 'ar')
+                                        {{ $value->role->role_ar }}
+                                    @else
+                                        {{ $value->role->role_en }}
+                                    @endif
+                                </td>
 
                                 <td class="text-center">
                                     <button class="btn btn-sm info" data-toggle="modal"
