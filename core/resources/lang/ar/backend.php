@@ -710,6 +710,11 @@ return array(
 
     'employees' => 'العاملين',
     'phone' => 'الهاتف',
+    'Children' => 'الأطفال',
+    'Role' => 'الدور',
+    'selectRole' => 'اختيار دور',
+    'Admin' => 'مشرف',
+    'Specialist' => 'متخصص',
 
     'societies' => 'المجتمع',
     'question' => 'السؤال',
