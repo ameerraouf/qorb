@@ -710,7 +710,6 @@ return array(
 
     'employees' => 'Employees',
     'phone' => 'Phone',
-<<<<<<< HEAD
 
     'societies' => 'Societies',
     'question' => 'Question',
@@ -718,11 +717,9 @@ return array(
     'questionEN' => 'Question [English]',
     'disable' => 'Disable',
 
-=======
     'Children' => 'Children',
     'Role' => 'Role',
     'selectRole' => 'Select Role',
     'Admin' => 'Admin',
     'Specialist' => 'Specialist',
->>>>>>> b4f7ef19c338078a3f39f85a4cd6965ff6a93501
 );
