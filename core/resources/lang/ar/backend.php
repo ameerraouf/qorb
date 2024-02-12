@@ -711,4 +711,10 @@ return array(
     'employees' => 'العاملين',
     'phone' => 'الهاتف',
 
+    'societies' => 'المجتمع',
+    'question' => 'السؤال',
+    'questionAR' => 'السؤال باللغة العربية',
+    'questionEN' => 'السؤال باللغة الإنجليزية',
+    'disable' => 'تعطيل',
+
 );

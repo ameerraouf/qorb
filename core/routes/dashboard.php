@@ -23,6 +23,7 @@ use App\Http\Controllers\Dashboard\FinancialTransactionController;
 use App\Http\Controllers\Dashboard\PackageController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\EmployeeController;
+use App\Http\Controllers\Dashboard\SocietyController;
 
 // Admin Home
 Route::get('/', [DashboardController::class, 'index'])->name('adminHome');
@@ -295,6 +296,16 @@ Route::get('/employees{id}/edit', [EmployeeController::class, 'edit'])->name('em
 Route::post('employees/{id}/update', [EmployeeController::class, 'update'])->name('employeesUpdate');
 Route::get('/employees/destroy/{id}', [EmployeeController::class, 'destroy'])->name('employeesDestroy');
 Route::post('/employees/updateAll', [EmployeeController::class, 'updateAll'])->name('employeesUpdateAll');
+
+// Society
+Route::get('/societies', [SocietyController::class, 'index'])->name('societies');
+Route::get('/societies/create/', [SocietyController::class, 'create'])->name('societiesCreate');
+Route::post('/societies/store', [SocietyController::class, 'store'])->name('societiesStore');
+Route::get('/societies{id}/edit', [SocietyController::class, 'edit'])->name('societiesEdit');
+Route::post('societies/{id}/update', [SocietyController::class, 'update'])->name('societiesUpdate');
+Route::get('/societies/destroy/{id}', [SocietyController::class, 'destroy'])->name('societiesDestroy');
+Route::post('/societies/updateAll', [SocietyController::class, 'updateAll'])->name('societiesUpdateAll');
+Route::get('/societies/change_status/{id}', [SocietyController::class, 'change_status'])->name('societies.change_status');
 
 Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
 Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');

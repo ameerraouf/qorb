@@ -710,4 +710,11 @@ return array(
 
     'employees' => 'Employees',
     'phone' => 'Phone',
+
+    'societies' => 'Societies',
+    'question' => 'Question',
+    'questionAR' => 'Question [Arabic]',
+    'questionEN' => 'Question [English]',
+    'disable' => 'Disable',
+
 );

@@ -45,7 +45,7 @@ padding: 0.2rem;
                     <div class="col-sm-10">
                         {!! Form::text('role_ar','', array('placeholder' => '','class' => 'form-control','id'=>'role_ar')) !!}
                         @if ($errors->has('role_ar'))
-                            <div class="text-danger">{{ $errors->first('role') }}</div>
+                            <div class="text-danger">{{ $errors->first('role_ar') }}</div>
                         @endif
                     </div>
                 </div>
@@ -55,7 +55,7 @@ padding: 0.2rem;
                     <div class="col-sm-10">
                         {!! Form::text('role_en','', array('placeholder' => '','class' => 'form-control','id'=>'role_en')) !!}
                         @if ($errors->has('role_en'))
-                            <div class="text-danger">{{ $errors->first('role') }}</div>
+                            <div class="text-danger">{{ $errors->first('role_en') }}</div>
                         @endif
                     </div>
                 </div>
