@@ -94,6 +94,7 @@ class UsersController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'role' => 'required',
             'permissions_id' => 'required'
         ]);
 
@@ -120,6 +121,7 @@ class UsersController extends Controller
                 $User->connect_email = $request->connect_email;
                 $User->connect_password = $request->connect_password;
                 $User->status = 1;
+                $User->role = $request->role;;
                 $User->created_by = Auth::user()->id;
                 $User->save();
 
@@ -190,7 +192,8 @@ class UsersController extends Controller
                 $this->validate($request, [
                     'photo' => 'mimes:png,jpeg,jpg,gif,svg',
                     'name' => 'required',
-                    'permissions_id' => 'required'
+                    'permissions_id' => 'required',
+                    'role' => 'required'
                 ]);
 
                 if ($request->email != $User->email) {
@@ -212,6 +215,7 @@ class UsersController extends Controller
                 //if ($id != 1) {
                 $User->name = $request->name;
                 $User->email = $request->email;
+                $User->role = $request->role;;
                 if ($request->password != "") {
                     $User->password = bcrypt($request->password);
                 }

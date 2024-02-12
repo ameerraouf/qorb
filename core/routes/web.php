@@ -51,9 +51,9 @@ if (env("RSS_STATUS", 0)) {
 Route::get('/oauth/{driver}', [SocialAuthController::class, 'redirectToProvider'])->name('social.oauth');
 Route::get('/oauth/{driver}/callback', [SocialAuthController::class, 'handleProviderCallback'])->name('social.callback');
 
-Route::Group(['prefix' => env('BACKEND_PATH')], function () {
+// Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Auth::routes();
-});
+// });
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');

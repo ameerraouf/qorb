@@ -77,6 +77,19 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="permissions1"
+                           class="col-sm-2 form-control-label">{!!  __('backend.Role') !!}</label>
+                    <div class="col-sm-10">
+                        <select name="role" id="role" required class="form-control c-select">
+                            <option value="">- - {!!  __('backend.selectRole') !!} - -</option>
+                                <option value="admin">{{ __('backend.Admin') }}</option>
+                                <option value="specialist">{{ __('backend.Specialist') }}</option>
+                        </select>
+
+                    </div>
+                </div>
+
                 <div class="form-group row m-t-md">
                     <div class="offset-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-primary m-t"><i class="material-icons">

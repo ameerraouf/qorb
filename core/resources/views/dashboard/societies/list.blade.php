@@ -1,27 +1,27 @@
 @extends('dashboard.layouts.master')
-@section('title',__('backend.employees'))
+@section('title',__('backend.societies'))
 @section('content')
     <div class="padding">
         <div class="box">
             <div class="box-header dker">
-                <h3>{{ __('backend.employees') }}</h3>
+                <h3>{{ __('backend.societies') }}</h3>
                 <small>
                     <a href="{{ route('adminHome') }}">{{ __('backend.home') }}</a> /
-                    <a href="">{{ __('backend.employees') }}</a>
+                    <a href="">{{ __('backend.societies') }}</a>
                 </small>
             </div>
-            @if($employees->total() > 0)
+            {{-- @if($societies->total() > 0)
                 @if(@Auth::user()->permissionsGroup->webmaster_status)
                     <div class="row p-a pull-right" style="margin-top: -70px;">
                         <div class="col-sm-12">
-                            <a class="btn btn-fw primary" href="{{route("employeesCreate")}}">
+                            <a class="btn btn-fw primary" href="{{route("societiesCreate")}}">
                                 <i class="fa fa-plus"></i>{{ __('backend.add') }}
                             </a>
                         </div>
                     </div>
                 @endif
             @endif
-            @if($employees->total() == 0)
+            @if($societies->total() == 0)
                 <div class="row p-a">
                     <div class="col-sm-12">
                         <div class=" p-a text-center ">
@@ -29,17 +29,17 @@
                             <br>
                             @if(@Auth::user()->permissionsGroup->webmaster_status)
                                 <br>
-                                <a class="btn btn-fw primary" href="{{route("employeesCreate")}}">
+                                <a class="btn btn-fw primary" href="{{route("societiesCreate")}}">
                                     <i class="fa fa-plus"></i>{{ __('backend.add') }}
                                 </a>
                             @endif
                         </div>
                     </div>
                 </div>
-            @endif
+            @endif --}}
 
-            @if($employees->total() > 0)
-                {{Form::open(['route'=>'employeesUpdateAll','method'=>'post'])}}
+            @if($societies->total() > 0)
+                {{Form::open(['route'=>'societiesUpdateAll','method'=>'post'])}}
                 <div class="table-responsive">
                     <table class="table table-bordered m-a-0">
                         <thead class="dker">
@@ -49,17 +49,14 @@
                                     <input id="checkAll" type="checkbox"><i></i>
                                 </label>
                             </th>
-                            <th class="text-center" style="width:100px;">{{ __('backend.fullName') }}</th>
-                            <th class="text-center" style="width:100px;">{{ __('backend.topicPhoto') }}</th>
-                            <th class="text-center" style="width:100px;">{{ __('backend.loginEmail') }}</th>
-                            <th class="text-center" style="width:100px;">{{ __('backend.phone') }}</th>
-                            <th class="text-center" style="width:100px;">{{ __('backend.role') }}</th>
+                            <th class="text-center" style="width:100px;">{{ __('backend.question') }}</th>
+                            <th class="text-center" style="width:50px;">{{ __('backend.status') }}</th>
                             <th class="text-center" style="width:200px;">{{ __('backend.action') }}</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        @foreach($employees as $value)
+                        @foreach($societies as $value)
                             <tr>
                                 <td class="dker"><label class="ui-check m-a-0">
                                         <input type="checkbox" name="ids[]" value="{{ $value->id }}"><i
@@ -67,19 +64,20 @@
                                         {!! Form::hidden('row_ids[]',$value->id, array('class' => 'form-control row_no')) !!}
                                     </label>
                                 </td>
-                                <td class="text-center">{{ $value->name }}</td>
-                                <td class="text-center"><img src="uploads/employees/{{ $value->photo }}" width="30px" height="30px" alt="">
-                                </td>
-                                <td class="text-center">{{ $value->email }}</td>
-                                <td class="text-center">{{ $value->phone }}</td>
                                 <td class="text-center">
                                     @if(app()->getLocale() == 'ar')
-                                        {{ $value->role->role_ar }}
+                                        {!! strlen($value->question_ar) > 40 ? substr($value->question_ar, 0, 40) . '...' : $value->question_ar!!}
                                     @else
-                                        {{ $value->role->role_en }}
+                                        {!! strlen($value->question_en) > 40 ? substr($value->question_en, 0, 40) . '...' : $value->question_en!!}
                                     @endif
                                 </td>
-
+                                <td class="text-center">
+                                    <a class="btn btn-xs primary" href="{{ route("societies.change_status",["id"=>$value->id]) }}">
+                                     <h5><i class="fa fa-exchange "></i></h5>
+                                 </a>
+                                 <strong>{{ $value->status == 1 ? __('backend.active') :  __('backend.disable') }}</strong>
+                                    
+                                </td>
                                 <td class="text-center">
                                     <button class="btn btn-sm info" data-toggle="modal"
                                             data-target="#show-{{ $value->id }}" ui-toggle-class="bounce"
@@ -87,11 +85,6 @@
                                         <small><i class="material-icons">&#xe8f4;</i> {{ __('backend.showing') }}
                                         </small>
                                     </button>
-                                    <a class="btn btn-sm success"
-                                       href="{{ route("employeesEdit",["id"=>$value->id]) }}">
-                                        <small><i class="material-icons">&#xe3c9;</i> {{ __('backend.edit') }}
-                                        </small>
-                                    </a>
                                     @if(@Auth::user()->permissionsGroup->webmaster_status)
                                         <button class="btn btn-sm warning" data-toggle="modal"
                                                 data-target="#delete-{{ $value->id }}" ui-toggle-class="bounce"
@@ -104,29 +97,21 @@
 
                                 </td>
                             </tr>
-
                             <!-- .modal -->
                             <div id="show-{{ $value->id }}" class="modal fade" data-backdrop="true">
                                 <div class="modal-dialog" id="animate">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">{{ $value->name }} : <strong>[ {{ $value->role->role }} ]</strong></h5>
+                                            <h5 class="modal-title">{{ __('backend.viewDetails') }}</h5>
                                         </div>
                                         <div class="modal-body text-center p-lg">
-                                            
-            
-                                            <div class="card" style="width: 100%">
-                                                <img class="img-thumbnail rounded" style="width: 30%" src="uploads/employees/{{ $value->photo }}" alt="{{ $value->name }}">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{ $value->name }}</h5>
-                                                </div>
-                                                <ul class="list-group list-group-flush">
-                                                    <div class="card-header">{{ __('backend.viewDetails') }}</div>
-                                                    <li class="list-group-item">{{ $value->email }}</li>
-                                                    <li class="list-group-item">{{ $value->phone }}</li>
-                                                </ul>
-                                            </div>
-
+                                            <h3>
+                                                @if(app()->getLocale() == 'ar')
+                                                    {{ $value->question_ar }}
+                                                @else
+                                                    {{ $value->question_en }}
+                                                @endif
+                                            </h3>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn dark-white p-x-md"
@@ -136,7 +121,6 @@
                                 </div>
                             </div>
                             <!-- / .modal -->
-
                             <!-- .modal -->
                             <div id="delete-{{ $value->id }}" class="modal fade" data-backdrop="true">
                                 <div class="modal-dialog" id="animate">
@@ -148,13 +132,19 @@
                                             <p>
                                                 {{ __('backend.confirmationDeleteMsg') }}
                                                 <br>
-                                                <strong>[ {{ $value->name }} ]</strong>
+                                                <strong>[ 
+                                                    @if(app()->getLocale() == 'ar')
+                                                    {{ $value->question_ar }}
+                                                @else
+                                                    {{ $value->question_en }}
+                                                @endif 
+                                                    ]</strong>
                                             </p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn dark-white p-x-md"
                                                     data-dismiss="modal">{{ __('backend.no') }}</button>
-                                            <a href="{{ route("employeesDestroy",["id"=>$value->id]) }}"
+                                            <a href="{{ route("societiesDestroy",["id"=>$value->id]) }}"
                                                class="btn danger p-x-md">{{ __('backend.yes') }}</a>
                                         </div>
                                     </div><!-- /.modal-content -->
@@ -209,12 +199,12 @@
                         </div>
 
                         <div class="col-sm-3 text-center">
-                            <small class="text-muted inline m-t-sm m-b-sm">{{ __('backend.showing') }} {{ $employees->firstItem() }}
-                                -{{ $employees->lastItem() }} {{ __('backend.of') }}
-                                <strong>{{ $employees->total()  }}</strong> {{ __('backend.records') }}</small>
+                            <small class="text-muted inline m-t-sm m-b-sm">{{ __('backend.showing') }} {{ $societies->firstItem() }}
+                                -{{ $societies->lastItem() }} {{ __('backend.of') }}
+                                <strong>{{ $societies->total()  }}</strong> {{ __('backend.records') }}</small>
                         </div>
                         <div class="col-sm-6 text-right text-center-xs">
-                            {!! $employees->links() !!}
+                            {!! $societies->links() !!}
                         </div>
                     </div>
                 </footer>

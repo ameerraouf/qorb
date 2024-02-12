@@ -22,9 +22,9 @@
                                     <i class="fa fa-user"></i> {{ Auth::user()->name }} <i class="fa fa-angle-down"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item"
-                                       href="{{ route("adminHome") }}"> <i
-                                            class="fa fa-cog"></i> {{__('frontend.dashboard')}}</a>
+                                    <a class="dropdown-item" href="{{ Auth::user()->role == 'admin' ? route("adminHome") : route("specialistHome")}}">
+                                        <i class="fa fa-cog"></i> {{__('frontend.dashboard')}}
+                                    </a>
                                     @if(Auth::user()->permissions ==0 || Auth::user()->permissions ==1)
                                         <a class="dropdown-item"
                                            href="{{ route('usersEdit',Auth::user()->id) }}"> <i
@@ -43,7 +43,7 @@
                             </div>
                         @else
                             <strong>
-                                <a href="{{ route("adminHome") }}"><i
+                                <a href="{{ route("login") }}"><i
                                         class="fa fa-cog"></i> {{__('frontend.dashboard')}}
                                 </a>
                             </strong>

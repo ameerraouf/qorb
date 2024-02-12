@@ -78,10 +78,27 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapDashboardRoutes()
     {
-        Route::prefix(env('BACKEND_PATH'))
-            ->middleware('auth')
-            ->namespace($this->dashboardNamespace)
-            ->group(base_path('routes/dashboard.php'));
+        // Route::prefix(env('BACKEND_PATH'))
+        //     // ->middleware('auth')
+        //     ->namespace($this->dashboardNamespace)
+        //     ->group(base_path('routes/dashboard.php'));
+        Route::group([
+            'namespace' => $this->dashboardNamespace
+        ], function () {
+            require base_path('routes/dashboard.php');
+        });
+    }
+    protected function mapSpecialistRoutes()
+    {
+        // Route::prefix(env('SPECIALIST_PATH'))
+        //     // ->middleware('auth')
+        //     ->namespace($this->dashboardNamespace)
+        //     ->group(base_path('routes/dashboard.php'));
+        Route::group([
+            'namespace' => $this->dashboardNamespace
+        ], function () {
+            require base_path('routes/dashboard.php');
+        });
     }
     protected function mapTeacherRoutes()
     {

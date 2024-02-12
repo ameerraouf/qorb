@@ -147,7 +147,7 @@
                                     <small>{{ __('backend.lastFor7Days') }}</small>
                                 </div>
                                 <div class="box-body">
-                                    <div ui-jp="plot" ui-refresh="app.setting.color"
+                                    <div style="height:162px" ui-jp="plot" ui-refresh="app.setting.color"
                                         ui-options="
 			              [
 			                {
@@ -220,11 +220,7 @@ $ii = 1;
             tooltip: true,
             tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
             }
-<<<<<<< HEAD
-"
-                                        style="height:162px">
-=======
-" style="height:162px">
+    " >
                                         </div>
                                     </div>
                                 </div>
@@ -248,40 +244,10 @@ $ii = 1;
                                            class="btn btn-sm btn-outline rounded b-success">{{ __('backend.viewMore') }}</a><br>
                                         <a href="{{ route('visitors') }}"
                                            class="btn btn-sm btn-outline rounded b-info">{{ __('backend.visitorsAnalyticsVisitorsHistory') }}</a>
->>>>>>> f45dca0eaa56683e055144b7468bceb08bcb1cfc
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 dker">
-                                <div class="box-header">
-                                    <h3>{{ __('backend.reports') }}</h3>
-                                </div>
-                                <div class="box-body">
-                                    <p class="text-muted">
-                                        {{ __('backend.reportsDetails') }} : <br>
-                                        <a
-                                            href="{{ route('analytics', 'date') }}">{{ __('backend.visitorsAnalyticsBydate') }}</a>,
-                                        <a
-                                            href="{{ route('analytics', 'country') }}">{{ __('backend.visitorsAnalyticsByCountry') }}</a>,
-                                        <a
-                                            href="{{ route('analytics', 'city') }}">{{ __('backend.visitorsAnalyticsByCity') }}</a>,
-                                        <a
-                                            href="{{ route('analytics', 'os') }}">{{ __('backend.visitorsAnalyticsByOperatingSystem') }}</a>,
-                                        <a
-                                            href="{{ route('analytics', 'browser') }}">{{ __('backend.visitorsAnalyticsByBrowser') }}</a>,
-                                        <a
-                                            href="{{ route('analytics', 'referrer') }}">{{ __('backend.visitorsAnalyticsByReachWay') }}</a>,
-                                        <a
-                                            href="{{ route('analytics', 'hostname') }}">{{ __('backend.visitorsAnalyticsByHostName') }}</a>,
-                                        <a
-                                            href="{{ route('analytics', 'org') }}">{{ __('backend.visitorsAnalyticsByOrganization') }}</a>
-                                    </p>
-                                    <a href="{{ route('analytics', 'date') }}" style="margin-bottom: 5px;"
-                                        class="btn btn-sm btn-outline rounded b-success">{{ __('backend.viewMore') }}</a><br>
-                                    <a href="{{ route('visitors') }}"
-                                        class="btn btn-sm btn-outline rounded b-info">{{ __('backend.visitorsAnalyticsVisitorsHistory') }}</a>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 @endif
@@ -463,28 +429,29 @@ $ii = 1;
 
                 </div>
             @endif
+
             <div class="row">
                 <?php
-                $col_count = 0;
-                if (Helper::GeneralWebmasterSettings('inbox_status')) {
-                    if (Auth::user()->permissionsGroup->inbox_status) {
-                        $col_count++;
+                    $col_count = 0;
+                    if (Helper::GeneralWebmasterSettings('inbox_status')) {
+                        if (Auth::user()->permissionsGroup->inbox_status) {
+                            $col_count++;
+                        }
                     }
-                }
-                if (Helper::GeneralWebmasterSettings('calendar_status')) {
-                    if (Auth::user()->permissionsGroup->calendar_status) {
-                        $col_count++;
+                    if (Helper::GeneralWebmasterSettings('calendar_status')) {
+                        if (Auth::user()->permissionsGroup->calendar_status) {
+                            $col_count++;
+                        }
                     }
-                }
-                if (Helper::GeneralWebmasterSettings('newsletter_status')) {
-                    if (Auth::user()->permissionsGroup->newsletter_status) {
-                        $col_count++;
+                    if (Helper::GeneralWebmasterSettings('newsletter_status')) {
+                        if (Auth::user()->permissionsGroup->newsletter_status) {
+                            $col_count++;
+                        }
                     }
-                }
-                $col_width = 12;
-                if ($col_count > 0) {
-                    $col_width = 12 / $col_count;
-                }
+                    $col_width = 12;
+                    if ($col_count > 0) {
+                        $col_width = 12 / $col_count;
+                    }
                 ?>
 
                 @if (Helper::GeneralWebmasterSettings('inbox_status'))
@@ -577,7 +544,7 @@ $ii = 1;
                         </div>
                     @endif
                 @endif
-                @if (Helper::GeneralWebmasterSettings('calendar_status'))
+                {{-- @if (Helper::GeneralWebmasterSettings('calendar_status'))
                     @if (@Auth::user()->permissionsGroup->calendar_status)
                         <div class="col-md-12 col-xl-{{ $col_width }}">
                             <div class="box m-b-0" style="min-height: 370px">
@@ -688,9 +655,9 @@ $ii = 1;
                             </div>
                         </div>
                     @endif
-                @endif
-                <div class="row">
-                    <?php
+                @endif --}}
+                {{-- <div class="row"> --}}
+                    {{-- <?php
                     $col_count = 0;
                     if (Helper::GeneralWebmasterSettings("inbox_status")) {
                         if (Auth::user()->permissionsGroup->inbox_status) {
@@ -711,9 +678,9 @@ $ii = 1;
                     if ($col_count > 0) {
                         $col_width = 12 / $col_count;
                     }
-                    ?>
+                    ?> --}}
 
-                    @if(Helper::GeneralWebmasterSettings("inbox_status"))
+                    {{-- @if(Helper::GeneralWebmasterSettings("inbox_status"))
                         @if(@Auth::user()->permissionsGroup->inbox_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
                                 <div class="box m-b-0" style="min-height: 370px">
@@ -801,7 +768,7 @@ $ii = 1;
                             </div>
                         @endif
                     @endif
-                    {{-- @if(Helper::GeneralWebmasterSettings("calendar_status"))
+                    @if(Helper::GeneralWebmasterSettings("calendar_status"))
                         @if(@Auth::user()->permissionsGroup->calendar_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
                                 <div class="box m-b-0" style="min-height: 370px">
@@ -856,7 +823,7 @@ $ii = 1;
                                 </div>
                             </div>
                         @endif
-                    @endif --}}
+                    @endif
                     @if(Helper::GeneralWebmasterSettings("newsletter_status"))
                         @if(@Auth::user()->permissionsGroup->newsletter_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
@@ -907,9 +874,10 @@ $ii = 1;
                                 </div>
                             </div>
                         @endif
-                    @endif
-                </div>
+                    @endif --}}
+                {{-- </div> --}}
+                
             @endif
-
+        </div>
     </div>
 @endsection

@@ -792,75 +792,27 @@
             <div class="row">
                 <div class="col-12">
                     <div class="boxes-faq">
+                        @foreach(App\Models\Society::withCount('replies')->latest()->get() as $value)
                         <a href="#" class="box-faq">
                             <div class="content">
                                 <img src="https://placehold.co/400" alt="" class="img">
                                 <h3 class="title">
-                                تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال 
+                                    @if(app()->getLocale() == 'ar')
+                                        {{ $value->question_ar }}
+                                    @else
+                                        {{ $value->question_en }}
+                                    @endif 
                                 </h3>
                             </div>
                             <div class="footer-box">
-                                <span class="name">
-                                    باسم جابر
-                                </span>
+                                <span class="name">باسم جابر</span>
                                 <div class="btns">
-                                    <span class="btn">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                        5
-                                    </span>
-                                    <span class="btn">
-                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                                        5
-                                    </span>
+                                    <span class="btn"><i class="fa fa-eye" aria-hidden="true"></i>5</span>
+                                    <span class="btn"><i class="fa fa-commenting-o" aria-hidden="true"></i>{{ $value->replies->count() }}</span>
                                 </div>
                             </div>
                         </a>
-                        <a href="#" class="box-faq">
-                            <div class="content">
-                                <img src="https://placehold.co/400" alt="" class="img">
-                                <h3 class="title">
-                                تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال 
-                                </h3>
-                            </div>
-                            <div class="footer-box">
-                                <span class="name">
-                                    باسم جابر
-                                </span>
-                                <div class="btns">
-                                    <span class="btn">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                        5
-                                    </span>
-                                    <span class="btn">
-                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                                        5
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="box-faq">
-                            <div class="content">
-                                <img src="https://placehold.co/400" alt="" class="img">
-                                <h3 class="title">
-                                تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال تجربة سؤال 
-                                </h3>
-                            </div>
-                            <div class="footer-box">
-                                <span class="name">
-                                    باسم جابر
-                                </span>
-                                <div class="btns">
-                                    <span class="btn">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                        5
-                                    </span>
-                                    <span class="btn">
-                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                                        5
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
