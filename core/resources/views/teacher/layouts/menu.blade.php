@@ -24,12 +24,12 @@
                             <span class="nav-text">{{ __('backend.dashboard') }}</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('teacher.teacherhome') }}">
+                    <li class=" {{ request()->is('*childrens*') ? 'active' : '' }}">
+                        <a href="{{ route('childrens.index') }}" >
                             <span class="nav-icon">
                                 <i class="material-icons">&#xe3fc;</i>
                             </span>
-                            <span class="nav-text">{{ __('teacher.children') }}</span>
+                            <span class="nav-text">{{ __('teacher.childrens') }}</span>
                         </a>
                     </li>
                     <li>
