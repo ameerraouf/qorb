@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('childrens', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('teacher_id')->constrained()->cascadeOnDelete();
             $table->string('name');
+            // $table->string('name_ar');
+            // $table->string('name_en');
             $table->integer('age');
             $table->text('problem');
+            // $table->text('problem_ar');
+            // $table->text('problem_en');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

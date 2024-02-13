@@ -21,4 +21,9 @@ class Teacher extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function childrens()
+    {
+        return $this->hasMany(Children::class);
+    }
 }

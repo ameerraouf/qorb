@@ -25,7 +25,13 @@ use App\Http\Controllers\Dashboard\WebmasterSectionsController;
 use App\Http\Controllers\Dashboard\WebmasterSettingsController;
 use App\Http\Controllers\Dashboard\FinancialTransactionController;
 
+<<<<<<< HEAD
 use App\Http\Controllers\Dashboard\ClientController;
+=======
+
+
+
+>>>>>>> 2704ee87b2e7b7b7c6687a1e91124fa1b7313a1b
 use App\Http\Controllers\Dashboard\SocietyController;
 
 // Admin Routes
@@ -302,6 +308,7 @@ Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('/employees/destroy/{id}', [EmployeeController::class, 'destroy'])->name('employeesDestroy');
     Route::post('/employees/updateAll', [EmployeeController::class, 'updateAll'])->name('employeesUpdateAll');
 
+<<<<<<< HEAD
     // Clients
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');
     Route::post('/clients/updateAll', [ClientController::class, 'updateAll'])->name('clientsUpdateAll');
@@ -323,6 +330,25 @@ Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
     Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
 
+=======
+
+// Society
+Route::get('/societies', [SocietyController::class, 'index'])->name('societies');
+Route::get('/societies/create/', [SocietyController::class, 'create'])->name('societiesCreate');
+Route::post('/societies/store', [SocietyController::class, 'store'])->name('societiesStore');
+Route::get('/societies{id}/edit', [SocietyController::class, 'edit'])->name('societiesEdit');
+Route::post('societies/{id}/update', [SocietyController::class, 'update'])->name('societiesUpdate');
+Route::get('/societies/destroy/{id}', [SocietyController::class, 'destroy'])->name('societiesDestroy');
+Route::post('/societies/updateAll', [SocietyController::class, 'updateAll'])->name('societiesUpdateAll');
+Route::get('/societies/change_status/{id}', [SocietyController::class, 'change_status'])->name('societies.change_status');
+
+Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
+Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
+
+    Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
+    Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
+
+>>>>>>> 2704ee87b2e7b7b7c6687a1e91124fa1b7313a1b
 
     // Clear Cache
     Route::get('/cache-clear', function () {

@@ -34,4 +34,11 @@
 <script src="{{ asset('assets/dashboard/js/scripts/app.js') }}?v={{ Helper::system_version() }}" defer></script>
 
 {!! Helper::SaveVisitorInfo("Dashboard &raquo; ".trim($__env->yieldContent('title'))) !!}
-@stack('after-scripts')
+
+
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.config.language = "{{ app()->getLocale() }}";
+    CKEDITOR.replace('editor');
+    CKEDITOR.replace('editor1');
+</script>
