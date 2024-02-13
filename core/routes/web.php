@@ -4,6 +4,8 @@ use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\SocietyReplyController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -111,6 +113,11 @@ Route::get('/{lang?}/topic/{id}', [HomeController::class, 'topicByLang'])->name(
 
 Route::get('/common-questions', [HomeController::class, 'CommonQuestions'])->name('FrontendCommonQuestions');
 Route::get('/{lang?}/common-questions', [HomeController::class, 'CommonQuestionsByLang'])->name('FrontendCommonQuestionsByLang');
+
+// Route::get('/societies', [HomeController::class, 'societies'])->name('FrontendSocieties');
+// Route::get('/{lang?}/societies', [HomeController::class, 'societiesByLang'])->name('FrontendSocietiesByLang');
+
+Route::post('/replySociety/{id}', [SocietyReplyController::class, 'replySociety'])->name('replySociety');
 
 // .. End of Frontend Route
 

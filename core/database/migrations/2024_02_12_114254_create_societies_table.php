@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('question_ar');
             $table->string('question_en');
             $table->tinyInteger('status')->default('1')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('teacher_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->timestamps();
         });
     }

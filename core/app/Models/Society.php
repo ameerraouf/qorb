@@ -13,8 +13,15 @@ class Society extends Model
         'question_ar',
         'question_en',
         'status',
+        'user_id',
+        'teacher_id',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
     public function replies()
     {
         return $this->hasMany(SocietyReply::class);

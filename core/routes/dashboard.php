@@ -25,19 +25,16 @@ use App\Http\Controllers\Dashboard\WebmasterSectionsController;
 use App\Http\Controllers\Dashboard\WebmasterSettingsController;
 use App\Http\Controllers\Dashboard\FinancialTransactionController;
 
-<<<<<<< HEAD
-use App\Http\Controllers\Dashboard\PackageController;
-use App\Http\Controllers\Dashboard\RoleController;
-use App\Http\Controllers\Dashboard\EmployeeController;
+use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\SocietyController;
-=======
+
 // Admin Routes
 Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('/', [DashboardController::class, 'index'])->name('adminHome');
     //Search
     Route::get('/search', [DashboardController::class, 'search'])->name('adminSearch');
     Route::post('/find', [DashboardController::class, 'find'])->name('adminFind');
->>>>>>> b4f7ef19c338078a3f39f85a4cd6965ff6a93501
+
 
     // Webmaster
     Route::get('/webmaster', [WebmasterSettingsController::class, 'edit'])->name('webmasterSettings');
@@ -305,23 +302,27 @@ Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('/employees/destroy/{id}', [EmployeeController::class, 'destroy'])->name('employeesDestroy');
     Route::post('/employees/updateAll', [EmployeeController::class, 'updateAll'])->name('employeesUpdateAll');
 
-<<<<<<< HEAD
-// Society
-Route::get('/societies', [SocietyController::class, 'index'])->name('societies');
-Route::get('/societies/create/', [SocietyController::class, 'create'])->name('societiesCreate');
-Route::post('/societies/store', [SocietyController::class, 'store'])->name('societiesStore');
-Route::get('/societies{id}/edit', [SocietyController::class, 'edit'])->name('societiesEdit');
-Route::post('societies/{id}/update', [SocietyController::class, 'update'])->name('societiesUpdate');
-Route::get('/societies/destroy/{id}', [SocietyController::class, 'destroy'])->name('societiesDestroy');
-Route::post('/societies/updateAll', [SocietyController::class, 'updateAll'])->name('societiesUpdateAll');
-Route::get('/societies/change_status/{id}', [SocietyController::class, 'change_status'])->name('societies.change_status');
+    // Clients
+    Route::get('/clients', [ClientController::class, 'index'])->name('clients');
+    Route::post('/clients/updateAll', [ClientController::class, 'updateAll'])->name('clientsUpdateAll');
 
-Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
-Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
-=======
+
+    // Society
+    Route::get('/societies', [SocietyController::class, 'index'])->name('societies');
+    Route::get('/societies/create/', [SocietyController::class, 'create'])->name('societiesCreate');
+    Route::post('/societies/store', [SocietyController::class, 'store'])->name('societiesStore');
+    Route::get('/societies{id}/edit', [SocietyController::class, 'edit'])->name('societiesEdit');
+    Route::post('societies/{id}/update', [SocietyController::class, 'update'])->name('societiesUpdate');
+    Route::get('/societies/destroy/{id}', [SocietyController::class, 'destroy'])->name('societiesDestroy');
+    Route::post('/societies/updateAll', [SocietyController::class, 'updateAll'])->name('societiesUpdateAll');
+    Route::get('/societies/change_status/{id}', [SocietyController::class, 'change_status'])->name('societies.change_status');
+
     Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
     Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
->>>>>>> b4f7ef19c338078a3f39f85a4cd6965ff6a93501
+
+    Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
+    Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
+
 
     // Clear Cache
     Route::get('/cache-clear', function () {

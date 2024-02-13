@@ -185,22 +185,27 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="panel-group mian-accordion" id="accordion">
-                                @foreach ($questions as $question)
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#collapse{{ $question->id }}">{{ $question->question }}
-                                                    <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="16" height="16"><path d="M12,17.17a5,5,0,0,1-3.54-1.46L.29,7.54A1,1,0,0,1,1.71,6.12l8.17,8.17a3,3,0,0,0,4.24,0l8.17-8.17a1,1,0,1,1,1.42,1.42l-8.17,8.17A5,5,0,0,1,12,17.17Z"/></svg>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse{{ $question->id }}" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p>{!! $question->answer !!}</p>
-                                            </div>
+                            <div class="boxes-faq">
+                                @foreach($societies as $value)
+                                <a href="#" class="box-faq">
+                                    <div class="content">
+                                        <img src="https://placehold.co/400" alt="" class="img">
+                                        <h3 class="title">
+                                            @if(app()->getLocale() == 'ar')
+                                                {{ $value->question_ar }}
+                                            @else
+                                                {{ $value->question_en }}
+                                            @endif 
+                                        </h3>
+                                    </div>
+                                    <div class="footer-box">
+                                        <span class="name">باسم جابر</span>
+                                        <div class="btns">
+                                            <span class="btn"><i class="fa fa-eye" aria-hidden="true"></i>5</span>
+                                            <span class="btn"><i class="fa fa-commenting-o" aria-hidden="true"></i>{{ $value->replies->count() }}</span>
                                         </div>
                                     </div>
+                                </a>
                                 @endforeach
                             </div>
                         </div>

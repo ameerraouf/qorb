@@ -258,6 +258,18 @@ $mnu_title_var2 = "title_" . env('DEFAULT_LANGUAGE');
                         </a>
                     </li>
 
+                    <?php
+                        $currentFolder = "clients"; // Put folder name here
+                        $PathCurrentFolder = substr($urlAfterRoot, 0, strlen($currentFolder));
+                    ?>
+                    <li {{ ($PathCurrentFolder==$currentFolder) ? 'class=active' : '' }} >
+                        <a href="{{ route('clients') }}">
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe433;</i>
+                            </span>
+                            <span class="nav-text">{{ __('backend.clients') }}</span>
+                        </a>
+                    </li>
 
                     <?php
                         $currentFolder = "employees"; // Put folder name here

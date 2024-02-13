@@ -235,6 +235,7 @@
                     @endif
                 @endforeach
                 <li><a href="{{ route('FrontendCommonQuestionsByLang') }}">{{ __('cruds.CommonQuestions.Title') }}</a></li>
+                {{-- <li><a href="{{ route('FrontendSocietiesByLang') }}">{{ __('backend.societies') }}</a></li> --}}
             </ul>
         </div>
     @endif

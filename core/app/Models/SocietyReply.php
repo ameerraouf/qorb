@@ -9,9 +9,16 @@ class SocietyReply extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'society_id',
         'reply',
+        'society_id',
+        'user_id',
+        'teacher_id',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function society()
     {
         return $this->belongsTo(Society::class);

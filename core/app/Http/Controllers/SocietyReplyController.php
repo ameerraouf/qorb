@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SocietyReply;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SocietyReplyController extends Controller
 {
@@ -62,4 +63,33 @@ class SocietyReplyController extends Controller
     {
         //
     }
+
+    public function replySociety(Request $request, $id)
+    {
+        $this->validate($request, [
+            'reply' => 'required',
+        ]);
+        
+        $replySociety = new SocietyReply;
+        $replySociety->reply = $request->reply;
+        $replySociety->society_id = $id;
+
+        if(Auth::user()->type == 'teacher' || Auth::user()->type == 'mother'){
+            $replySociety->teacher_id = Auth::user()->id;
+            $replySociety->user_id = 0;
+
+        } else {
+            $replySociety->user_id = Auth::user()->id;
+            $replySociety->teacher_id = 0;
+
+        }
+        // $replySociety->user_id = Auth::user()->id;
+        // $replySociety->teacher_id = 0;
+
+        $replySociety->save();
+        return redirect()->action('HomeController@HomePage');
+        
+    }
+
+
 }

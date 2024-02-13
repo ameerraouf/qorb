@@ -721,5 +721,7 @@ return array(
     'questionAR' => 'السؤال باللغة العربية',
     'questionEN' => 'السؤال باللغة الإنجليزية',
     'disable' => 'تعطيل',
+    'clients' => 'العملاء',
+    'sub_services' => 'الخدمات الفرعية',
 
 );
