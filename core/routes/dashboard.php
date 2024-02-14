@@ -25,11 +25,13 @@ use App\Http\Controllers\Dashboard\WebmasterSectionsController;
 use App\Http\Controllers\Dashboard\WebmasterSettingsController;
 use App\Http\Controllers\Dashboard\FinancialTransactionController;
 
+<<<<<<< HEAD
 use App\Http\Controllers\Dashboard\ClientController;
+=======
+>>>>>>> 9042e51b8504eded79238e8786c473aaed76d0a5
 
 
 
->>>>>>> 2704ee87b2e7b7b7c6687a1e91124fa1b7313a1b
 use App\Http\Controllers\Dashboard\SocietyController;
 
 // Admin Routes
@@ -306,6 +308,7 @@ Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('/employees/destroy/{id}', [EmployeeController::class, 'destroy'])->name('employeesDestroy');
     Route::post('/employees/updateAll', [EmployeeController::class, 'updateAll'])->name('employeesUpdateAll');
 
+<<<<<<< HEAD
 
     // Clients
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');
@@ -328,6 +331,8 @@ Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
     Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
 
+=======
+>>>>>>> 9042e51b8504eded79238e8786c473aaed76d0a5
 
 // Society
 Route::get('/societies', [SocietyController::class, 'index'])->name('societies');
