@@ -25,10 +25,7 @@ use App\Http\Controllers\Dashboard\WebmasterSectionsController;
 use App\Http\Controllers\Dashboard\WebmasterSettingsController;
 use App\Http\Controllers\Dashboard\FinancialTransactionController;
 
-<<<<<<< HEAD
 use App\Http\Controllers\Dashboard\ClientController;
-=======
->>>>>>> 9042e51b8504eded79238e8786c473aaed76d0a5
 
 
 
@@ -308,8 +305,6 @@ Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('/employees/destroy/{id}', [EmployeeController::class, 'destroy'])->name('employeesDestroy');
     Route::post('/employees/updateAll', [EmployeeController::class, 'updateAll'])->name('employeesUpdateAll');
 
-<<<<<<< HEAD
-
     // Clients
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');
     Route::post('/clients/updateAll', [ClientController::class, 'updateAll'])->name('clientsUpdateAll');
@@ -331,8 +326,6 @@ Route::group(['prefix'=>env('BACKEND_PATH'),'middleware'=>'admin'],function(){
     Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
     Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
 
-=======
->>>>>>> 9042e51b8504eded79238e8786c473aaed76d0a5
 
 // Society
 Route::get('/societies', [SocietyController::class, 'index'])->name('societies');
@@ -343,9 +336,6 @@ Route::post('societies/{id}/update', [SocietyController::class, 'update'])->name
 Route::get('/societies/destroy/{id}', [SocietyController::class, 'destroy'])->name('societiesDestroy');
 Route::post('/societies/updateAll', [SocietyController::class, 'updateAll'])->name('societiesUpdateAll');
 Route::get('/societies/change_status/{id}', [SocietyController::class, 'change_status'])->name('societies.change_status');
-
-Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
-Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
 
     Route::get('file-manager', [FileManagerController::class, 'index'])->name('FileManager');
     Route::get('files-manager', [FileManagerController::class, 'manager'])->name('FilesManager');
