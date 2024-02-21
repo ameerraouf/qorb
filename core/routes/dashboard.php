@@ -403,6 +403,8 @@ Route::group(['prefix'=>env('SPECIALIST_PATH'),'middleware'=>'specialist'],funct
     Route::get('/status-report/edit/{id}', [SpecialistController::class, 'editStatusReportPage'])->name('StatusReportEdit');
     Route::post('/status-report/create/{id}', [SpecialistController::class, 'storeStatusReport'])->name('StatusReportStore');
     Route::post('/status-report/update/{id}', [SpecialistController::class, 'updateStatusReport'])->name('StatusReportUpdate');
-
-
+    
+    
+    Route::get('/profile', [SpecialistController::class, 'showProfile'])->name('Profile');
+    Route::post('/profile/update', [SpecialistController::class, 'updateProfile'])->name('profileUpdate');
 });

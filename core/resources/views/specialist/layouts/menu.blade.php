@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('Profile') }}">
                             <span class="nav-icon">
                                 <i class="material-icons">&#xe3fc;</i>
                             </span>

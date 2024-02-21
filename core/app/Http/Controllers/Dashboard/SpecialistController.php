@@ -8,6 +8,7 @@ use App\Models\Children;
 use App\Models\ConsultingReport;
 use App\Models\Report;
 use App\Models\StatusReport;
+use Illuminate\Support\Facades\Auth;
 use Storage;
 
 class SpecialistController extends Controller
@@ -266,4 +267,26 @@ class SpecialistController extends Controller
         }
         
     }
+
+
+    function showProfile(){
+        $user = Auth::user();
+        if ($user) {
+            return view('specialist.profile', compact('user'));
+        }
+        else{
+            return redirect()->back()->with('errorMessage', 'User not found');
+        }
+    }
+
+    function updateProfile(Request $request) {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:employees',
+            'phone' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|unique:employees',
+            'password' => 'required|min:6',
+            'photo' => 'mimes:png,jpeg,jpg,gif,svg',
+        ]);
+    }
+
 }
