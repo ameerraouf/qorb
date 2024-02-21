@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Children;
 use App\Models\ConsultingReport;
+use App\Models\FinancialTransaction;
 use App\Models\Report;
 use App\Models\StatusReport;
 use App\Models\User;
+use App\Models\WebmasterSection;
 use Illuminate\Support\Facades\Auth;
 use Storage;
 
@@ -19,7 +21,8 @@ class SpecialistController extends Controller
 
     public function index()
     {
-        return view('specialist.home');
+        $childrenCount = Children::count();
+        return view('specialist.home', compact('childrenCount'));
     }
 
     public function showChildrens(){
@@ -47,6 +50,12 @@ class SpecialistController extends Controller
         $reports = StatusReport::where('children_id', $id)->paginate(10);
         $child_id = Children::where('id' , $id) -> select('id')->first()->id;
         return view('specialist.status_reports.list', compact('reports','child_id'));
+    }
+
+    public function showFTransactions(){
+        
+        $transactions = FinancialTransaction::orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
+        return view('specialist.financial-transactions.list', compact('transactions'));
     }
 
     public function createReportPage($id){

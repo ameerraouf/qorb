@@ -407,4 +407,6 @@ Route::group(['prefix'=>env('SPECIALIST_PATH'),'middleware'=>'specialist'],funct
     
     Route::get('/profile', [SpecialistController::class, 'showProfile'])->name('Profile');
     Route::post('/profile/update', [SpecialistController::class, 'updateProfile'])->name('profileUpdate');
+    
+    Route::get('/transactions', [SpecialistController::class, 'showFTransactions'])->name('FTransactions');
 });

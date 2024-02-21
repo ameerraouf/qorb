@@ -17,7 +17,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="{{ route('specialistHome') }}">
                             <span class="nav-icon">
                                 <i class="material-icons">&#xe3fc;</i>
                             </span>
@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li>
-                        <a>
+                        <a href="{{ route('FTransactions') }}">
                             <span class="nav-icon">
                                 <i class="material-icons">&#xe1b8;</i>
                             </span>

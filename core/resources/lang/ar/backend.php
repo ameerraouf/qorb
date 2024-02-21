@@ -724,5 +724,6 @@ return array(
     'disable' => 'تعطيل',
     'clients' => 'العملاء',
     'sub_services' => 'الخدمات الفرعية',
+    "ChildrenCount" => "عدد الأطفال الكلي"
 
 );

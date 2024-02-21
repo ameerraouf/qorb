@@ -32,7 +32,8 @@
                     @if (count($home_links) > 0)
                         @foreach ($home_links as $key => $home_link)
                             <div class="col-sm-4 col-md-4 col-lg-3">
-                                <a href="{{ @$home_link->btn_link }}" {{ @$home_link->btn_target ? "target=\"_blank\"" : '' }}
+                                <a href="{{ @$home_link->btn_link }}"
+                                    {{ @$home_link->btn_target ? "target=\"_blank\"" : '' }}
                                     class="m-b w-100 {!! @$home_link->btn_class !!}">{!! @$home_link->{'btn_title_' . @Helper::currentLanguage()->code} !!}</a>
                             </div>
                         @endforeach
@@ -98,7 +99,7 @@
                                     if ($headerWebmasterSection->id == 8) {
                                         $LiIcon = '&#xe8f6;';
                                     }
-
+                                    
                                     ?>
                                     <div class="col-xs-{{ $b_cls }}">
                                         <div class="box p-a" style="cursor: pointer"
@@ -220,50 +221,58 @@ $ii = 1;
             tooltip: true,
             tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
             }
-    " >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 dker">
-                                    <div class="box-header">
-                                        <h3>{{ __('backend.visitorsAnalytics') }}</h3>
-                                    </div>
-                                    <div class="box-body">
-                                        <p class="text-muted">
-                                            {{ __('backend.reportsDetails') }} : <br>
-                                            <a href="{{ route('analytics', 'date') }}">{{ __('backend.visitorsAnalyticsBydate') }}</a>,
-                                            <a href="{{ route('analytics', 'country') }}">{{ __('backend.visitorsAnalyticsByCountry') }}</a>,
-                                            <a href="{{ route('analytics', 'city') }}">{{ __('backend.visitorsAnalyticsByCity') }}</a>,
-                                            <a href="{{ route('analytics', 'os') }}">{{ __('backend.visitorsAnalyticsByOperatingSystem') }}</a>,
-                                            <a href="{{ route('analytics', 'browser') }}">{{ __('backend.visitorsAnalyticsByBrowser') }}</a>,
-                                            <a href="{{ route('analytics', 'referrer') }}">{{ __('backend.visitorsAnalyticsByReachWay') }}</a>,
-                                            <a href="{{ route('analytics', 'hostname') }}">{{ __('backend.visitorsAnalyticsByHostName') }}</a>,
-                                            <a href="{{ route('analytics', 'org') }}">{{ __('backend.visitorsAnalyticsByOrganization') }}</a>
-                                        </p>
-                                        <a href="{{ route('analytics', 'date') }}" style="margin-bottom: 5px;"
-                                           class="btn btn-sm btn-outline rounded b-success">{{ __('backend.viewMore') }}</a><br>
-                                        <a href="{{ route('visitors') }}"
-                                           class="btn btn-sm btn-outline rounded b-info">{{ __('backend.visitorsAnalyticsVisitorsHistory') }}</a>
+    ">
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-sm-4 dker">
+                                <div class="box-header">
+                                    <h3>{{ __('backend.visitorsAnalytics') }}</h3>
+                                </div>
+                                <div class="box-body">
+                                    <p class="text-muted">
+                                        {{ __('backend.reportsDetails') }} : <br>
+                                        <a
+                                            href="{{ route('analytics', 'date') }}">{{ __('backend.visitorsAnalyticsBydate') }}</a>,
+                                        <a
+                                            href="{{ route('analytics', 'country') }}">{{ __('backend.visitorsAnalyticsByCountry') }}</a>,
+                                        <a
+                                            href="{{ route('analytics', 'city') }}">{{ __('backend.visitorsAnalyticsByCity') }}</a>,
+                                        <a
+                                            href="{{ route('analytics', 'os') }}">{{ __('backend.visitorsAnalyticsByOperatingSystem') }}</a>,
+                                        <a
+                                            href="{{ route('analytics', 'browser') }}">{{ __('backend.visitorsAnalyticsByBrowser') }}</a>,
+                                        <a
+                                            href="{{ route('analytics', 'referrer') }}">{{ __('backend.visitorsAnalyticsByReachWay') }}</a>,
+                                        <a
+                                            href="{{ route('analytics', 'hostname') }}">{{ __('backend.visitorsAnalyticsByHostName') }}</a>,
+                                        <a
+                                            href="{{ route('analytics', 'org') }}">{{ __('backend.visitorsAnalyticsByOrganization') }}</a>
+                                    </p>
+                                    <a href="{{ route('analytics', 'date') }}" style="margin-bottom: 5px;"
+                                        class="btn btn-sm btn-outline rounded b-success">{{ __('backend.viewMore') }}</a><br>
+                                    <a href="{{ route('visitors') }}"
+                                        class="btn btn-sm btn-outline rounded b-info">{{ __('backend.visitorsAnalyticsVisitorsHistory') }}</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                @endif
-            </div>
-            @if (env('GEOIP_STATUS', false))
-                <div class="row">
-                    <div class="col-md-12 col-xl-4">
-                        <div class="box">
-                            <div class="box-header b-b">
-                                <h3>{{ __('backend.visitorsRate') }}</h3>
-                                <small>{{ __('backend.visitorsRateToday') . ' [ ' . Helper::formatDate(date('Y-m-d')) . ' ]' }}</small>
-                            </div>
-                            <div class="box-body">
 
-                                <div ui-jp="plot"
-                                    ui-options="
+                    </div>
+            </div>
+        @endif
+    </div>
+    @if (env('GEOIP_STATUS', false))
+        <div class="row">
+            <div class="col-md-12 col-xl-4">
+                <div class="box">
+                    <div class="box-header b-b">
+                        <h3>{{ __('backend.visitorsRate') }}</h3>
+                        <small>{{ __('backend.visitorsRateToday') . ' [ ' . Helper::formatDate(date('Y-m-d')) . ' ]' }}</small>
+                    </div>
+                    <div class="box-body">
+
+                        <div ui-jp="plot"
+                            ui-options="
               [
                 {
                   data: [{!! $TodayVisitorsRate !!}],
@@ -281,26 +290,26 @@ $ii = 1;
                 tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
               }
             "
-                                    style="height:200px">
-                                </div>
-                            </div>
+                            style="height:200px">
                         </div>
                     </div>
-                    <div class="col-md-12 col-xl-4">
-                        <div class="box" style="min-height: 300px">
-                            <div class="box-header">
-                                <h3>{{ __('backend.browsers') }}</h3>
-                                <small>{{ __('backend.browsersCalculated') }}</small>
-                            </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <div class="box" style="min-height: 300px">
+                    <div class="box-header">
+                        <h3>{{ __('backend.browsers') }}</h3>
+                        <small>{{ __('backend.browsersCalculated') }}</small>
+                    </div>
 
-                            @if ($TodayByBrowser1_val > 0)
-                                <div class="text-center b-t">
-                                    <div class="row-col">
-                                        <div class="row-cell p-a">
-                                            <div class="inline m-b">
-                                                <div ui-jp="easyPieChart" class="easyPieChart"
-                                                    ui-refresh="app.setting.color" data-redraw='true' data-percent="55"
-                                                    ui-options="{
+                    @if ($TodayByBrowser1_val > 0)
+                        <div class="text-center b-t">
+                            <div class="row-col">
+                                <div class="row-cell p-a">
+                                    <div class="inline m-b">
+                                        <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color"
+                                            data-redraw='true' data-percent="55"
+                                            ui-options="{
 	                      lineWidth: 8,
 	                      trackColor: 'rgba(0,0,0,0.05)',
 	                      barColor: '#0cc2aa',
@@ -312,27 +321,27 @@ $ii = 1;
 	                        enabled:true
 	                      }
 	                    }">
-                                                    <div>
-                                                        <h5>
-                                                            <?php
-                                                            echo $perc1 = round(($TodayByBrowser1_val * 100) / ($TodayByBrowser1_val + $TodayByBrowser2_val)) . '%';
-                                                            ?>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div>
-                                                {{ $TodayByBrowser1 }}
-                                                <small class="block m-b">{{ $TodayByBrowser1_val }}</small>
-                                                <a href="{{ route('analytics', 'browser') }}"
-                                                    class="btn btn-sm white text-u-c rounded">{{ __('backend.more') }}</a>
+                                                <h5>
+                                                    <?php
+                                                    echo $perc1 = round(($TodayByBrowser1_val * 100) / ($TodayByBrowser1_val + $TodayByBrowser2_val)) . '%';
+                                                    ?>
+                                                </h5>
                                             </div>
                                         </div>
-                                        <div class="row-cell p-a dker">
-                                            <div class="inline m-b">
-                                                <div ui-jp="easyPieChart" class="easyPieChart"
-                                                    ui-refresh="app.setting.color" data-redraw='true' data-percent="45"
-                                                    ui-options="{
+                                    </div>
+                                    <div>
+                                        {{ $TodayByBrowser1 }}
+                                        <small class="block m-b">{{ $TodayByBrowser1_val }}</small>
+                                        <a href="{{ route('analytics', 'browser') }}"
+                                            class="btn btn-sm white text-u-c rounded">{{ __('backend.more') }}</a>
+                                    </div>
+                                </div>
+                                <div class="row-cell p-a dker">
+                                    <div class="inline m-b">
+                                        <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color"
+                                            data-redraw='true' data-percent="45"
+                                            ui-options="{
 	                      lineWidth: 8,
 	                      trackColor: 'rgba(0,0,0,0.05)',
 	                      barColor: '#fcc100',
@@ -344,207 +353,206 @@ $ii = 1;
 	                        enabled:true
 	                      }
 	                    }">
-                                                    <div>
-                                                        <h5>
-                                                            <?php
-                                                            echo $perc1 = round(($TodayByBrowser2_val * 100) / ($TodayByBrowser1_val + $TodayByBrowser2_val)) . '%';
-                                                            ?>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div>
-                                                {{ $TodayByBrowser2 }}
-                                                <small class="block m-b">{{ $TodayByBrowser2_val }}</small>
-                                                <a href="{{ route('analytics', 'browser') }}"
-                                                    class="btn btn-sm white text-u-c rounded">{{ __('backend.more') }}</a>
+                                                <h5>
+                                                    <?php
+                                                    echo $perc1 = round(($TodayByBrowser2_val * 100) / ($TodayByBrowser1_val + $TodayByBrowser2_val)) . '%';
+                                                    ?>
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-xl-4">
-                        <div class="box light lt" style="min-height: 300px">
-                            <div class="box-header">
-                                <h3> {{ __('backend.todayByCountry') }}</h3>
-                            </div>
-                            <div class="box-tool">
-                                <ul class="nav">
-                                    <li class="nav-item inline">
-                                        <a href="{{ route('analytics', 'country') }}"
-                                            class="btn btn-sm white text-u-c rounded">{{ __('backend.more') }}</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            @if (count($TodayByCountry) == 0)
-                                <div class="text-center m-t-1" style="color:#bbb">
-                                    <h1><i class="material-icons">&#xe1b7;</i></h1>
-                                    {{ __('backend.noData') }}
-                                </div>
-                            @else
-                                <ul class="list no-border p-b">
-                                    <?php
-                                    $ii = 1;
-                                    ?>
-                                    @foreach ($TodayByCountry as $id)
-                                        @if ($ii <= 4)
-                                            <li class="list-item">
-                                                <?php
-                                                $i2 = 0;
-                                                ?>
-
-                                                <?php
-                                                $flag = '';
-                                                $country_code = strtolower(@$id['code']);
-                                                if ($country_code != 'unknown') {
-                                                    $flag = "<div class='flag flag-$country_code' style='display: inline-block'></div> ";
-                                                }
-                                                ?>
-
-                                                <a herf class="list-left">
-                                                    <span class="w-40 rounded dker">
-                                                        <span>{{ @$id['code'] }}</span>
-                                                    </span>
-                                                </a>
-                                                <div class="list-body">
-                                                    <div>{!! $flag !!} {{ @$id['name'] }}</div>
-                                                    <small class="text-muted text-ellipsis">
-                                                        {{ __('backend.visitors') }} : {{ @$id['visits'] }},
-                                                        {{ __('backend.pageViews') }} : {{ @$id['pages'] }}
-                                                    </small>
-                                                </div>
-
-
-                                            </li>
-                                        @endif
-                                        <?php $ii++; ?>
-                                    @endforeach
-
-                                </ul>
-                            @endif
-                        </div>
-                    </div>
-
-                </div>
-            @endif
-
-            <div class="row">
-                <?php
-                    $col_count = 0;
-                    if (Helper::GeneralWebmasterSettings('inbox_status')) {
-                        if (Auth::user()->permissionsGroup->inbox_status) {
-                            $col_count++;
-                        }
-                    }
-                    if (Helper::GeneralWebmasterSettings('calendar_status')) {
-                        if (Auth::user()->permissionsGroup->calendar_status) {
-                            $col_count++;
-                        }
-                    }
-                    if (Helper::GeneralWebmasterSettings('newsletter_status')) {
-                        if (Auth::user()->permissionsGroup->newsletter_status) {
-                            $col_count++;
-                        }
-                    }
-                    $col_width = 12;
-                    if ($col_count > 0) {
-                        $col_width = 12 / $col_count;
-                    }
-                ?>
-
-                @if (Helper::GeneralWebmasterSettings('inbox_status'))
-                    @if (@Auth::user()->permissionsGroup->inbox_status)
-                        <div class="col-md-12 col-xl-{{ $col_width }}">
-                            <div class="box m-b-0" style="min-height: 370px">
-                                <div class="box-header">
-                                    <h3>{{ __('backend.latestMessages') }}</h3>
-                                </div>
-                                <div class="box-tool">
-                                    <ul class="nav">
-                                        <li class="nav-item inline dropdown">
-                                            <a class="nav-link text-muted p-x-xs" data-toggle="dropdown">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-scale pull-right">
-                                                <a class="dropdown-item" href="{{ route('webmails') }}">
-                                                    {!! __('backend.inbox') !!} </a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('webmails', ['group_id' => 'sent']) }}">{!! __('backend.sent') !!}</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                @if (count($Webmails) == 0)
-                                    <div class="text-center m-t-1" style="color:#bbb">
-                                        <h1><i class="material-icons">&#xe156;</i></h1>
-                                        {{ __('backend.noData') }}
-                                    </div>
-                                @else
-                                    <ul class="list-group no-border">
-                                        @foreach ($Webmails as $Webmail)
-                                            <?php
-                                            $s4ds_current_date = date('Y-m-d', $_SERVER['REQUEST_TIME']);
-                                            $day_mm = date('Y-m-d', strtotime($Webmail->date));
-                                            if ($day_mm == $s4ds_current_date) {
-                                                $dtformated = date('h:i A', strtotime($Webmail->date));
-                                            } else {
-                                                $dtformated = Helper::formatDate($Webmail->date);
-                                            }
-
-                                            try {
-                                                $groupColor = $Webmail->webmailsGroup->color;
-                                                $groupName = $Webmail->webmailsGroup->name;
-                                            } catch (Exception $e) {
-                                                $groupColor = '';
-                                                $groupName = '';
-                                            }
-
-                                            $fontStyle = '';
-                                            $unreadIcon = '&#xe151;';
-                                            $unreadbg = '';
-                                            $unreadText = '';
-                                            if ($Webmail->status == 0) {
-                                                $fontStyle = '_700';
-                                                $unreadIcon = '&#xe0be;';
-                                                $unreadbg = "style=\"background: $groupColor \"";
-                                                $unreadText = "style=\"color: $groupColor \"";
-                                            }
-                                            ?>
-                                            <li class="list-group-item">
-                                                <div class="pull-right">
-                                                    <small>{{ $dtformated }}</small>
-                                                </div>
-                                                <a href="{{ route('webmailsEdit', ['id' => $Webmail->id]) }}"
-                                                    class="pull-left w-40 m-r">
-                                                    <span class="w-40 rounded danger"
-                                                        style="background: {!! $groupColor !!}">
-                                                        <i class="material-icons">{!! $unreadIcon !!}</i>
-                                                    </span>
-                                                </a>
-                                                <div class="clear">
-                                                    <a href="{{ route('webmailsEdit', ['id' => $Webmail->id]) }}"
-                                                        class="_500 block">{{ $Webmail->from_name }}</a>
-                                                    <span class="text-muted">{{ $Webmail->title }}</span>
-                                                </div>
-                                            </li>
-                                        @endforeach
-
-                                    </ul>
-
-                                    <div class="box-footer">
-                                        <a href="{{ route('webmails', ['group_id' => 'create']) }}"
-                                            class="btn btn-sm btn-outline b-primary rounded text-u-c pull-right">{{ __('backend.compose') }}</a>
-                                        <a href="{{ route('webmails') }}"
+                                    <div>
+                                        {{ $TodayByBrowser2 }}
+                                        <small class="block m-b">{{ $TodayByBrowser2_val }}</small>
+                                        <a href="{{ route('analytics', 'browser') }}"
                                             class="btn btn-sm white text-u-c rounded">{{ __('backend.more') }}</a>
                                     </div>
-                                @endif
+                                </div>
                             </div>
                         </div>
                     @endif
-                @endif
-                {{-- @if (Helper::GeneralWebmasterSettings('calendar_status'))
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <div class="box light lt" style="min-height: 300px">
+                    <div class="box-header">
+                        <h3> {{ __('backend.todayByCountry') }}</h3>
+                    </div>
+                    <div class="box-tool">
+                        <ul class="nav">
+                            <li class="nav-item inline">
+                                <a href="{{ route('analytics', 'country') }}"
+                                    class="btn btn-sm white text-u-c rounded">{{ __('backend.more') }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    @if (count($TodayByCountry) == 0)
+                        <div class="text-center m-t-1" style="color:#bbb">
+                            <h1><i class="material-icons">&#xe1b7;</i></h1>
+                            {{ __('backend.noData') }}
+                        </div>
+                    @else
+                        <ul class="list no-border p-b">
+                            <?php
+                            $ii = 1;
+                            ?>
+                            @foreach ($TodayByCountry as $id)
+                                @if ($ii <= 4)
+                                    <li class="list-item">
+                                        <?php
+                                        $i2 = 0;
+                                        ?>
+
+                                        <?php
+                                        $flag = '';
+                                        $country_code = strtolower(@$id['code']);
+                                        if ($country_code != 'unknown') {
+                                            $flag = "<div class='flag flag-$country_code' style='display: inline-block'></div> ";
+                                        }
+                                        ?>
+
+                                        <a herf class="list-left">
+                                            <span class="w-40 rounded dker">
+                                                <span>{{ @$id['code'] }}</span>
+                                            </span>
+                                        </a>
+                                        <div class="list-body">
+                                            <div>{!! $flag !!} {{ @$id['name'] }}</div>
+                                            <small class="text-muted text-ellipsis">
+                                                {{ __('backend.visitors') }} : {{ @$id['visits'] }},
+                                                {{ __('backend.pageViews') }} : {{ @$id['pages'] }}
+                                            </small>
+                                        </div>
+
+
+                                    </li>
+                                @endif
+                                <?php $ii++; ?>
+                            @endforeach
+
+                        </ul>
+                    @endif
+                </div>
+            </div>
+
+        </div>
+    @endif
+
+    <div class="row">
+        <?php
+        $col_count = 0;
+        if (Helper::GeneralWebmasterSettings('inbox_status')) {
+            if (Auth::user()->permissionsGroup->inbox_status) {
+                $col_count++;
+            }
+        }
+        if (Helper::GeneralWebmasterSettings('calendar_status')) {
+            if (Auth::user()->permissionsGroup->calendar_status) {
+                $col_count++;
+            }
+        }
+        if (Helper::GeneralWebmasterSettings('newsletter_status')) {
+            if (Auth::user()->permissionsGroup->newsletter_status) {
+                $col_count++;
+            }
+        }
+        $col_width = 12;
+        if ($col_count > 0) {
+            $col_width = 12 / $col_count;
+        }
+        ?>
+
+        @if (Helper::GeneralWebmasterSettings('inbox_status'))
+            @if (@Auth::user()->permissionsGroup->inbox_status)
+                <div class="col-md-12 col-xl-{{ $col_width }}">
+                    <div class="box m-b-0" style="min-height: 370px">
+                        <div class="box-header">
+                            <h3>{{ __('backend.latestMessages') }}</h3>
+                        </div>
+                        <div class="box-tool">
+                            <ul class="nav">
+                                <li class="nav-item inline dropdown">
+                                    <a class="nav-link text-muted p-x-xs" data-toggle="dropdown">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                        <a class="dropdown-item" href="{{ route('webmails') }}">
+                                            {!! __('backend.inbox') !!} </a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('webmails', ['group_id' => 'sent']) }}">{!! __('backend.sent') !!}</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        @if (count($Webmails) == 0)
+                            <div class="text-center m-t-1" style="color:#bbb">
+                                <h1><i class="material-icons">&#xe156;</i></h1>
+                                {{ __('backend.noData') }}
+                            </div>
+                        @else
+                            <ul class="list-group no-border">
+                                @foreach ($Webmails as $Webmail)
+                                    <?php
+                                    $s4ds_current_date = date('Y-m-d', $_SERVER['REQUEST_TIME']);
+                                    $day_mm = date('Y-m-d', strtotime($Webmail->date));
+                                    if ($day_mm == $s4ds_current_date) {
+                                        $dtformated = date('h:i A', strtotime($Webmail->date));
+                                    } else {
+                                        $dtformated = Helper::formatDate($Webmail->date);
+                                    }
+                                    
+                                    try {
+                                        $groupColor = $Webmail->webmailsGroup->color;
+                                        $groupName = $Webmail->webmailsGroup->name;
+                                    } catch (Exception $e) {
+                                        $groupColor = '';
+                                        $groupName = '';
+                                    }
+                                    
+                                    $fontStyle = '';
+                                    $unreadIcon = '&#xe151;';
+                                    $unreadbg = '';
+                                    $unreadText = '';
+                                    if ($Webmail->status == 0) {
+                                        $fontStyle = '_700';
+                                        $unreadIcon = '&#xe0be;';
+                                        $unreadbg = "style=\"background: $groupColor \"";
+                                        $unreadText = "style=\"color: $groupColor \"";
+                                    }
+                                    ?>
+                                    <li class="list-group-item">
+                                        <div class="pull-right">
+                                            <small>{{ $dtformated }}</small>
+                                        </div>
+                                        <a href="{{ route('webmailsEdit', ['id' => $Webmail->id]) }}"
+                                            class="pull-left w-40 m-r">
+                                            <span class="w-40 rounded danger" style="background: {!! $groupColor !!}">
+                                                <i class="material-icons">{!! $unreadIcon !!}</i>
+                                            </span>
+                                        </a>
+                                        <div class="clear">
+                                            <a href="{{ route('webmailsEdit', ['id' => $Webmail->id]) }}"
+                                                class="_500 block">{{ $Webmail->from_name }}</a>
+                                            <span class="text-muted">{{ $Webmail->title }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+
+                            <div class="box-footer">
+                                <a href="{{ route('webmails', ['group_id' => 'create']) }}"
+                                    class="btn btn-sm btn-outline b-primary rounded text-u-c pull-right">{{ __('backend.compose') }}</a>
+                                <a href="{{ route('webmails') }}"
+                                    class="btn btn-sm white text-u-c rounded">{{ __('backend.more') }}</a>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+        @endif
+        {{-- @if (Helper::GeneralWebmasterSettings('calendar_status'))
                     @if (@Auth::user()->permissionsGroup->calendar_status)
                         <div class="col-md-12 col-xl-{{ $col_width }}">
                             <div class="box m-b-0" style="min-height: 370px">
@@ -656,32 +664,32 @@ $ii = 1;
                         </div>
                     @endif
                 @endif --}}
-                {{-- <div class="row"> --}}
-                    {{-- <?php
-                    $col_count = 0;
-                    if (Helper::GeneralWebmasterSettings("inbox_status")) {
-                        if (Auth::user()->permissionsGroup->inbox_status) {
-                            $col_count++;
-                        }
-                    }
-                    if (Helper::GeneralWebmasterSettings("calendar_status")) {
-                        if (Auth::user()->permissionsGroup->calendar_status) {
-                            $col_count++;
-                        }
-                    }
-                    if (Helper::GeneralWebmasterSettings("newsletter_status")) {
-                        if (Auth::user()->permissionsGroup->newsletter_status) {
-                            $col_count++;
-                        }
-                    }
-                    $col_width = 12;
-                    if ($col_count > 0) {
-                        $col_width = 12 / $col_count;
-                    }
-                    ?> --}}
+        {{-- <div class="row"> --}}
+        {{-- <?php
+        $col_count = 0;
+        if (Helper::GeneralWebmasterSettings('inbox_status')) {
+            if (Auth::user()->permissionsGroup->inbox_status) {
+                $col_count++;
+            }
+        }
+        if (Helper::GeneralWebmasterSettings('calendar_status')) {
+            if (Auth::user()->permissionsGroup->calendar_status) {
+                $col_count++;
+            }
+        }
+        if (Helper::GeneralWebmasterSettings('newsletter_status')) {
+            if (Auth::user()->permissionsGroup->newsletter_status) {
+                $col_count++;
+            }
+        }
+        $col_width = 12;
+        if ($col_count > 0) {
+            $col_width = 12 / $col_count;
+        }
+        ?> --}}
 
-                    {{-- @if(Helper::GeneralWebmasterSettings("inbox_status"))
-                        @if(@Auth::user()->permissionsGroup->inbox_status)
+        {{-- @if (Helper::GeneralWebmasterSettings('inbox_status'))
+                        @if (@Auth::user()->permissionsGroup->inbox_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
                                 <div class="box m-b-0" style="min-height: 370px">
                                     <div class="box-header">
@@ -702,13 +710,13 @@ $ii = 1;
                                             </li>
                                         </ul>
                                     </div>
-                                    @if(count($Webmails) == 0)
+                                    @if (count($Webmails) == 0)
                                         <div class="text-center m-t-1" style="color:#bbb">
                                             <h1><i class="material-icons">&#xe156;</i></h1>
                                             {{ __('backend.noData') }}</div>
                                     @else
                                         <ul class="list-group no-border">
-                                            @foreach($Webmails as $Webmail)
+                                            @foreach ($Webmails as $Webmail)
                                                 <?php
                                                 $s4ds_current_date = date('Y-m-d', $_SERVER['REQUEST_TIME']);
                                                 $day_mm = date('Y-m-d', strtotime($Webmail->date));
@@ -717,22 +725,22 @@ $ii = 1;
                                                 } else {
                                                     $dtformated = Helper::formatDate($Webmail->date);
                                                 }
-
+                                                
                                                 try {
                                                     $groupColor = $Webmail->webmailsGroup->color;
                                                     $groupName = $Webmail->webmailsGroup->name;
                                                 } catch (Exception $e) {
-                                                    $groupColor = "";
-                                                    $groupName = "";
+                                                    $groupColor = '';
+                                                    $groupName = '';
                                                 }
-
-                                                $fontStyle = "";
-                                                $unreadIcon = "&#xe151;";
-                                                $unreadbg = "";
-                                                $unreadText = "";
+                                                
+                                                $fontStyle = '';
+                                                $unreadIcon = '&#xe151;';
+                                                $unreadbg = '';
+                                                $unreadText = '';
                                                 if ($Webmail->status == 0) {
-                                                    $fontStyle = "_700";
-                                                    $unreadIcon = "&#xe0be;";
+                                                    $fontStyle = '_700';
+                                                    $unreadIcon = '&#xe0be;';
                                                     $unreadbg = "style=\"background: $groupColor \"";
                                                     $unreadText = "style=\"color: $groupColor \"";
                                                 }
@@ -768,8 +776,8 @@ $ii = 1;
                             </div>
                         @endif
                     @endif
-                    @if(Helper::GeneralWebmasterSettings("calendar_status"))
-                        @if(@Auth::user()->permissionsGroup->calendar_status)
+                    @if (Helper::GeneralWebmasterSettings('calendar_status'))
+                        @if (@Auth::user()->permissionsGroup->calendar_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
                                 <div class="box m-b-0" style="min-height: 370px">
                                     <div class="box-header">
@@ -784,28 +792,28 @@ $ii = 1;
                                         </ul>
                                     </div>
                                     <div class="box-body">
-                                        @if(count($Events) == 0)
+                                        @if (count($Events) == 0)
                                             <div class="text-center m-t-1" style="color:#bbb">
                                                 <h1><i class="material-icons">&#xe5c3;</i></h1>
                                                 {{ __('backend.noData') }}</div>
                                         @else
                                             <div class="streamline b-l m-l">
-                                                @foreach($Events as $Event)
+                                                @foreach ($Events as $Event)
                                                 <?php
                                                 if ($Event->type == 3) {
-                                                    $cls = "info";
+                                                    $cls = 'info';
                                                 } elseif ($Event->type == 2) {
-                                                    $cls = "danger";
+                                                    $cls = 'danger';
                                                 } elseif ($Event->type == 1) {
-                                                    $cls = "success";
+                                                    $cls = 'success';
                                                 } else {
-                                                    $cls = "black";
+                                                    $cls = 'black';
                                                 }
                                                 ?>
                                                     <div class="sl-item  b-{{$cls}}">
                                                         <div class="sl-content">
                                                             <div class="sl-date text-muted">
-                                                                @if($Event->type ==1 || $Event->type ==2)
+                                                                @if ($Event->type == 1 || $Event->type == 2)
                                                                     {{ Helper::formatDate($Event->start_date)." ".date("h:i A", strtotime($Event->start_date)) }}
                                                                 @else
                                                                     {{ Helper::formatDate($Event->start_date) }}
@@ -824,8 +832,8 @@ $ii = 1;
                             </div>
                         @endif
                     @endif
-                    @if(Helper::GeneralWebmasterSettings("newsletter_status"))
-                        @if(@Auth::user()->permissionsGroup->newsletter_status)
+                    @if (Helper::GeneralWebmasterSettings('newsletter_status'))
+                        @if (@Auth::user()->permissionsGroup->newsletter_status)
                             <div class="col-md-12 col-xl-{{$col_width}}">
                                 <div class="box m-b-0" style="min-height: 370px">
                                     <div class="box-header">
@@ -839,18 +847,18 @@ $ii = 1;
                                             </li>
                                         </ul>
                                     </div>
-                                    @if(count($Contacts) == 0)
+                                    @if (count($Contacts) == 0)
                                         <div class="text-center m-t-1" style="color:#bbb">
                                             <h1><i class="material-icons">&#xe7ef;</i></h1>
                                             {{ __('backend.noData') }}</div>
                                     @else
                                         <ul class="list no-border p-b">
-                                            @foreach($Contacts as $Contact)
+                                            @foreach ($Contacts as $Contact)
                                                 <li class="list-item">
                                                     <a href="{{ route("contactsEdit",["id"=>$Contact->id]) }}"
                                                        class="list-left">
 	                	<span class="w-40 avatar">
-                            @if($Contact->photo!="")
+                            @if ($Contact->photo != '')
                                 <img src="{{ asset('uploads/contacts/'.$Contact->photo) }}"
                                      alt="{{ $Contact->first_name }} {{ $Contact->last_name }}">
                             @else
@@ -875,9 +883,9 @@ $ii = 1;
                             </div>
                         @endif
                     @endif --}}
-                {{-- </div> --}}
-                
-            @endif
-        </div>
+        {{-- </div> --}}
+
+        @endif
+    </div>
     </div>
 @endsection

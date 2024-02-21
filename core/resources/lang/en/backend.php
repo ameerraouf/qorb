@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    "ChildrenCount" => "Children Count",
     'show' => 'Show',
     'home' => 'Home',
     'main' => 'Main',
