@@ -119,7 +119,7 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
                                               {{-- <a class="dropdown-item" href="#">{{ __('teacher.reports') }}</a> --}}
                                               <a class="dropdown-item" href="{{ route('TeacherReports',$child->id) }}">تقارير الجلسات</a>
-                                              <a class="dropdown-item" href="#">تقارير الحالة </a>
+                                              <a class="dropdown-item" href="{{ route('TeacherStatusReports', $child->id) }}">تقارير الحالة </a>
                                               <a class="dropdown-item" href="{{ route('TeacherConsultingReports',$child->id) }}">تقارير الاستشارات</a>
                                               <a class="dropdown-item" href="#">الخطة العلاجية</a>
                                               <a class="dropdown-item" href="#">تقييم vbmap</a>
