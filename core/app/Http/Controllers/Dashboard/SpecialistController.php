@@ -8,11 +8,15 @@ use App\Models\Children;
 use App\Models\ConsultingReport;
 use App\Models\Report;
 use App\Models\StatusReport;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Storage;
 
 class SpecialistController extends Controller
 {
+
+    private $uploadPath = "uploads/users/";
+
     public function index()
     {
         return view('specialist.home');
@@ -123,7 +127,7 @@ class SpecialistController extends Controller
         
         $this->validate($request, [
             'children_id'=>'required',
-            'type' => 'required',
+            'type' => 'required|max:255',
             'problem' => 'required|max:1000',
             'solution' => ['required','max:1000'],
         ]);
@@ -148,11 +152,11 @@ class SpecialistController extends Controller
         
         $this->validate($request, [
             'children_id'=>'required',
-            'companion' => 'required',
+            'companion' => 'required|max:255',
             'status_type' => 'required',
-            'strength_weakness' => 'required',
-            'reinforcers' => 'required',
-            'status_target' => 'required',
+            'strength_weakness' => 'required|max:1000',
+            'reinforcers' => 'required|max:1000',
+            'status_target' => 'required|max:1000',
         ]);
 
         try {
@@ -206,7 +210,7 @@ class SpecialistController extends Controller
         if(!empty($report)){
 
             $this->validate($request, [
-                'type' => 'required',
+                'type' => 'required|max:255',
                 'problem' => 'required|max:1000',
                 'solution' => ['required','max:1000'],
             ]);
@@ -232,11 +236,11 @@ class SpecialistController extends Controller
         if(!empty($report)){
 
             $this->validate($request, [
-                'companion' => 'required',
+                'companion' => 'required|max:255',
                 'status_type' => 'required',
-                'strength_weakness' => 'required',
-                'reinforcers' => 'required',
-                'status_target' => 'required',
+                'strength_weakness' => 'required|max:1000',
+                'reinforcers' => 'required|max:1000',
+                'status_target' => 'required|max:1000',
             ]);
     
             try {
@@ -280,13 +284,43 @@ class SpecialistController extends Controller
     }
 
     function updateProfile(Request $request) {
+        $id = Auth::user()->id;
+        $user = User::find($id);
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:employees',
-            'phone' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|unique:employees',
-            'password' => 'required|min:6',
-            'photo' => 'mimes:png,jpeg,jpg,gif,svg',
+            'email' => 'required|email',
+            'phone' => 'required|min:6',
+            'photo' => 'nullable|mimes:png,jpeg,jpg,gif,svg',
         ]);
+
+        try{
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            if ($request->password) {
+                $user->password = bcrypt($request->password);
+            }
+            else{
+                $user->password = "";
+            }
+            if ($request->photo) {
+                $photo = time() . rand(1111,
+                        9999) . '.' . $request->file('photo')->getClientOriginalExtension();
+                $path = $this->getUploadPath();
+                $request->photo->move($path, $photo);
+                $user->photo = $photo;
+            }
+            $user->update();
+            return redirect()->route('Profile')->with('doneMessage', __('backend.saveDone'));
+        }
+        catch(\Exception $e){
+            return redirect()->route('Profile')->with('errorMessage', $e->getMessage());
+        }
+    }
+
+    public function getUploadPath()
+    {
+        return $this->uploadPath;
     }
 
 }

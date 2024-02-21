@@ -47,8 +47,14 @@
                 <label for="password"
                        class="col-sm-2 form-control-label">{!!  __('backend.loginPassword') !!}
                 </label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                     <input type="password" name="password" minlength="6" class="form-control">
+                </div>
+                <label for="phone"
+                       class="col-sm-2 form-control-label">{!!  __('backend.phone') !!}
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="phone" minlength="6" value="{{ $user->phone }}" class="form-control">
                 </div>
             </div>
 
@@ -56,7 +62,7 @@
                 <label for="photo_file"
                        class="col-sm-2 form-control-label">{!!  __('backend.topicPhoto') !!}</label>
                 <div class="col-sm-10">
-                    @if($user->photo!="")
+                    @if($user->photo)
                         <div class="row">
                             <div class="col-sm-12">
                                 <div id="user_photo" class="col-sm-4 box p-a-xs">

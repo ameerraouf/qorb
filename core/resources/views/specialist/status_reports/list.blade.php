@@ -193,7 +193,7 @@
                                 </div>
                             </div>
                             <!-- / .modal -->
-                                <select name="action" id="action" class="form-control c-select w-sm inline v-middle"
+                                {{-- <select name="action" id="action" class="form-control c-select w-sm inline v-middle"
                                         required>
                                     <option value="">{{ __('backend.bulkAction') }}</option>
                                     <option value="delete">{{ __('backend.deleteSelected') }}</option>
@@ -204,7 +204,7 @@
                                         style="display: none"
                                         data-target="#m-all" ui-toggle-class="bounce"
                                         ui-target="#animate">{{ __('backend.apply') }}
-                                </button>
+                                </button> --}}
                         </div>
 
                         <div class="col-sm-3 text-center">
