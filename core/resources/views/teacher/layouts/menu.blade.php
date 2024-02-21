@@ -58,7 +58,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ route('teacher.teacherhome') }}">
+                        <a href="{{ route('TeacherProfile') }}">
                             <span class="nav-icon">
                                 <i class="material-icons">&#xe3fc;</i>
                             </span>
