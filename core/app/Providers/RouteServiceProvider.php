@@ -102,10 +102,11 @@ class RouteServiceProvider extends ServiceProvider
     }
     protected function mapTeacherRoutes()
     {
-        Route::prefix(env('Teacher_PATH'))
-            // ->middleware('auth:teacher')
-            ->namespace($this->teacherNamespace)
-            ->group(base_path('routes/teacher.php'));
+        Route::group([
+            'namespace' => $this->teacherNamespace
+        ], function () {
+            require base_path('routes/teacher.php');
+        });
     }
 
 

@@ -6,7 +6,7 @@
             <div class="box-header dker">
                 <h3>{{ __('teacher.childrens') }}</h3>
                 <small>
-                    <a href="{{ route('adminHome') }}">{{ __('backend.home') }}</a> /
+                    <a href="{{ route('teacher.teacherhome') }}">{{ __('backend.home') }}</a> /
                     <a href="{{ route('childrens.index') }}">{{ __('teacher.childrens') }}</a>
                 </small>
             </div>
@@ -118,9 +118,9 @@
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
                                               {{-- <a class="dropdown-item" href="#">{{ __('teacher.reports') }}</a> --}}
-                                              <a class="dropdown-item" href="#">تقارير الجلسات</a>
+                                              <a class="dropdown-item" href="{{ route('TeacherReports',$child->id) }}">تقارير الجلسات</a>
                                               <a class="dropdown-item" href="#">تقارير الحالة </a>
-                                              <a class="dropdown-item" href="#">تقارير الاستشارات</a>
+                                              <a class="dropdown-item" href="{{ route('TeacherConsultingReports',$child->id) }}">تقارير الاستشارات</a>
                                               <a class="dropdown-item" href="#">الخطة العلاجية</a>
                                               <a class="dropdown-item" href="#">تقييم vbmap</a>
                                               <a class="dropdown-item" href="#">التقرير النهائى</a>
