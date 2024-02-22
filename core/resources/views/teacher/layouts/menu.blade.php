@@ -44,7 +44,7 @@
                         </a>
                         <ul class="nav-sub">
                             <li>
-                                <a href="#">
+                                <a href="{{ route('TeacherPackages') }}">
                                     <span
                                         class="nav-text">{{ __('teacher.package') }}</span>
                                 </a>

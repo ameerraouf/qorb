@@ -72,5 +72,11 @@ return array(
         "ChooseStatus" => "Choose Status Type"
 
     ],
+
+    "Packages" => [
+        'currency' => 'SAR',
+        'Subscribe' => "Subscribe now",
+        'Title' => "Packages",
+    ],
     
 );

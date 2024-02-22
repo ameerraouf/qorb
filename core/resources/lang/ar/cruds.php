@@ -74,12 +74,14 @@ return array(
     ],
 
 
-    // 'packages' => [
-    //     'packages' => 'الباقات',
-    //     'packageTitle' => 'أسم الباقة',
-    //     'advantages' => 'المميزات',
-    //     'price' => 'السعر',
-    // ],
+    'Packages' => [
+        'Title' => 'الباقات',
+        'packageTitle' => 'أسم الباقة',
+        'advantages' => 'المميزات',
+        'price' => 'السعر',
+        'currency' => 'ريال',
+        'Subscribe' => "أشترك الأن",
+    ],
 
     // 'employees' => [
     //     'employees' => 'العاملين',

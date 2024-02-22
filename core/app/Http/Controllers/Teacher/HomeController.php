@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\Teacher;
 use App\Models\Children;
 use App\Models\ConsultingReport;
+use App\Models\Package;
 use App\Models\Report;
 use App\Models\StatusReport;
 use App\Models\Teacher as ModelsTeacher;
@@ -19,6 +20,15 @@ class HomeController extends Controller
    public function index()
    {
     return view('teacher.home');
+   }
+
+   public function showPackages(){
+    $packages = Package::paginate(8);
+    $packages->each(function($p){
+        $p->advantages = explode(',' , $p->advantages);
+    });
+    // return $packages;
+    return view('teacher.packages.list', compact('packages'));
    }
 
    function showChildrenReports($id){
