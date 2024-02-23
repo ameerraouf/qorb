@@ -34,8 +34,9 @@
                 <div class="col-sm-4">
                     {!! Form::text('name',$user->name, array('placeholder' => '','class' => 'form-control','id'=>'name','required'=>'')) !!}
                 </div>
-        
-                <label for="email"
+            </div>
+            <div class="form-group row">
+            <label for="email"
                        class="col-sm-2 form-control-label">{!!  __('backend.loginEmail') !!}
                 </label>
                 <div class="col-sm-4">
@@ -50,7 +51,9 @@
                 <div class="col-sm-4">
                     <input type="password" name="password" minlength="6" class="form-control">
                 </div>
-                <label for="phone"
+            </div>
+            <div class="form-group row">
+            <label for="phone"
                        class="col-sm-2 form-control-label">{!!  __('backend.phone') !!}
                 </label>
                 <div class="col-sm-4">
@@ -61,7 +64,7 @@
             <div class="form-group row">
                 <label for="photo_file"
                        class="col-sm-2 form-control-label">{!!  __('backend.topicPhoto') !!}</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                     @if($user->photo)
                         <div class="row">
                             <div class="col-sm-12">

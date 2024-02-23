@@ -39,7 +39,7 @@
             <div class="form-group row">
                 <label for="photo_file"
                        class="col-sm-2 form-control-label">{!!  __('backend.topicPhoto') !!}</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                     @if($user->photo)
                         <div class="row">
                             <div class="col-sm-12">
