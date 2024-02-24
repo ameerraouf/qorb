@@ -22,7 +22,7 @@
                         class="material-icons text-2x m-y-sm"></i>
                 </div>
                 <div class="clear">
-                    <div class="text-muted">{{__('teacher.childrens')}}</div>
+                    <div class="text-muted">{{__('backend.childrens')}}</div>
                 </div>
             </a>
         </div>
@@ -38,7 +38,7 @@
                         class="material-icons text-2x m-y-sm"></i>
                 </div>
                 <div class="clear">
-                    <div class="text-muted">{{__('teacher.package')}}</div>
+                    <div class="text-muted">{{__('backend.package')}}</div>
                     <h4 class="m-a-0 text-md _600"></h4>
                 </div>
             </a>
