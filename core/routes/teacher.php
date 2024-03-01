@@ -36,5 +36,14 @@ Route::group(['middleware'=>'auth:teacher'],function(){
     Route::post('/teacher/profile', [HomeController::class, 'updateTeacherProfile'])->name('teacherProfileUpdate');
     
     Route::get('/teacher/packages', [HomeController::class, 'showPackages'])->name('TeacherPackages');
+
+    Route::get('/children/vbmap/{id}', [HomeController::class, 'showChildrenVbmap'])->name('TshowChildrenVbmap');
+    Route::get('/children/treatment-plan/{id}', [HomeController::class, 'showChildrenTreatmentPlan'])->name('TshowChildrenTreatmentPlan');
+    Route::get('/children/final-reports/{id}', [HomeController::class, 'showChildrenFinalReports'])->name('TshowChildrenFinalReports');
+
+    Route::get('/teacher/subscriptions/', [HomeController::class, 'showSubscriptionsPage'])->name('TshowSubscriptionsPage');
+
+
+
 });
 //

@@ -54,7 +54,7 @@ class SpecialistController extends Controller
 
     public function showFTransactions(){
         
-        $transactions = FinancialTransaction::orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
+        $transactions = FinancialTransaction::where('user_id', Auth::user()->id)->orderby('id', 'asc')->paginate(env('BACKEND_PAGINATION'));
         return view('specialist.financial-transactions.list', compact('transactions'));
     }
 

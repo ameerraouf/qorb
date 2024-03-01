@@ -8,6 +8,8 @@ return array(
         "Name" => "Name",
         "CopyOfTheBankTransfer" => "Copy Of The Bank Transfer",
         "Notes" => "Notes",
+        'Purchases'=>'Purchases'
+
     ],
 
     'CommonQuestions' => [
@@ -29,8 +31,7 @@ return array(
         "Name_EN" => "Name",
         "Age_AR" => "Age",
         "Age_EN" => "Age",
-        "Files_AR" => "Files",
-        "Files_EN" => "Files",
+        "Files" => "Files",
         "Problem_AR" => "Problem",
         "Problem_EN" => "Problem",
         "Reports_AR" => "Reports",
@@ -59,7 +60,7 @@ return array(
         "Type_EN" => "Consulting Type",
         "Problem_EN" => "Problem",
         "Solution_EN" => "Solution",
-
+        "Files" => "Files",
         "Companion_AR" => "Companion",
         "Companion_EN" => "Companion",
         "Status_type_AR" => "Status Type",
@@ -69,14 +70,25 @@ return array(
         "Reinforcers_AR" => "Reinforcers",
         "Reinforcers_EN" => "Reinforcers",
 
-        "ChooseStatus" => "Choose Status Type"
+        "ChooseStatus" => "Choose Status Type",
+
+        'Vbmap' => 'Vbmap Report',
+        'TreatmentPlan' => 'Treatment Plans',
+        'FinalReport' => 'Final Reports',
+        'HelpDesc' => 'Help Description',
+        'HelpType' => 'Help Type',
+        'Develop' => 'Develop Percentage ',
+        'Recommend' => 'Recommendations',
 
     ],
 
     "Packages" => [
         'currency' => 'SAR',
+        'price' => 'Price',
         'Subscribe' => "Subscribe now",
         'Title' => "Packages",
+        'purchaseDate' => 'Purchase Date',
+        'childName' => 'Subsicripted Child Name',
     ],
     
 );

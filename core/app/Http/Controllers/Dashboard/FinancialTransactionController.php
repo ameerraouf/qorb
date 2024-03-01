@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\WebmasterSection;
 use App\Http\Controllers\Controller;
 use App\Models\FinancialTransaction;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use File;
 
@@ -47,7 +48,9 @@ class FinancialTransactionController extends Controller
         $GeneralWebmasterSections = WebmasterSection::where('status', '=', '1')->orderby('row_no', 'asc')->get();
         // General END
 
-        return view("dashboard.financial-transactions.create", compact("GeneralWebmasterSections"));
+        $users = User::where('role' , '!=' , 'admin')->get();
+        
+        return view("dashboard.financial-transactions.create", compact("GeneralWebmasterSections", "users"));
     }
 
     public function store(Request $request)
@@ -98,9 +101,10 @@ class FinancialTransactionController extends Controller
         // General END
 
         $transaction = FinancialTransaction::find($id);
+        $users = User::where('role' , '!=' , 'admin')->get();
 
         if (!empty($transaction)) {
-            return view("dashboard.financial-transactions.edit", compact("transaction", "GeneralWebmasterSections"));
+            return view("dashboard.financial-transactions.edit", compact("transaction", "GeneralWebmasterSections", "users"));
         } else {
             return redirect()->action('Dashboard\FinancialTransactionController@index');
         }
