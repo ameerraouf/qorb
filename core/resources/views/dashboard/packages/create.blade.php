@@ -69,7 +69,7 @@ padding: 0.2rem;
                 <div class="form-group row">
                     <label for="price" class="col-sm-2 form-control-label">{{ __('backend.price') }}</label>
                     <div class="col-sm-10">
-                        {!! Form::text('price','', array('placeholder' => '','class' => 'form-control','id'=>'price')) !!}
+                        {!! Form::number('price','', array('placeholder' => '','class' => 'form-control','id'=>'price')) !!}
                         @if ($errors->has('price'))
                             <div class="text-danger">{{ $errors->first('price') }}</div>
                         @endif

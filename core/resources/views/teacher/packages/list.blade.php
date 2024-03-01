@@ -57,6 +57,7 @@
             flex-direction: column;
             align-items: center;
             height: 100%;
+            margin-top: 1rem;
         }
 
         .box-package .title {

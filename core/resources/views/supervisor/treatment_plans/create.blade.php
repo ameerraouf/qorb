@@ -25,9 +25,9 @@
 
                 <div class="form-group row">
                     <label for="target"
-                           class="col-sm-2 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Target_AR') : __('cruds.Reports.Target_EN') }}
+                           class="col-xl-1 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Target_AR') : __('cruds.Reports.Target_EN') }}
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-xl-11">
                         {{ Form::hidden('children_id', $child_id) }}
                         {!! Form::textarea('target','<div dir='.@$ActiveLanguage->direction.'><br></div>', array('ui-jp'=>'summernote','placeholder' => '','class' => 'form-control summernote_'.@$ActiveLanguage->code, 'dir'=>@$ActiveLanguage->direction,'ui-options'=>'{height: 300,callbacks: {
                             onImageUpload: function(files, editor, welEditable) {
@@ -39,28 +39,24 @@
                 </div>
                     <div class="form-group row">
                         <label
-                            class="col-sm-2 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.HelpType') : __('cruds.Reports.HelpType') }}
+                            class="col-xl-1 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.HelpType') : __('cruds.Reports.HelpType') }}
                         </label>
-                        <div class="col-sm-10">
-                            <div class="box p-a-xs">
+                        <div class="col-xl-11">
                                 {!! Form::text('help_type','', array('placeholder' => '','class' => 'form-control','id'=>'type','required'=>'')) !!}
-                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label
-                            class="col-sm-2 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.HelpDesc') : __('cruds.Reports.HelpDesc') }}
+                            class="col-xl-1 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.HelpDesc') : __('cruds.Reports.HelpDesc') }}
                         </label>
-                        <div class="col-sm-10">
+                        <div class="col-xl-11">
                             
-                                <div class="box p-a-xs">
                                     {!! Form::text('help_description','', array('placeholder' => '','class' => 'form-control','id'=>'type','required'=>'')) !!}
-                                </div>
                             
                         </div>
                     </div>
                 <div class="form-group row m-t-md">
-                    <div class="offset-sm-2 col-sm-10">
+                    <div class="offset-sm-2 col-xl-10">
                         <button type="submit" class="btn btn-primary m-t"><i class="material-icons">
                                 &#xe31b;</i> {!! __('backend.add') !!}</button>
                         <a href="{{route('showChildrenTreatmentPlan', $child_id)}}"
