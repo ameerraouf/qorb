@@ -25,9 +25,9 @@
 
                 <div class="form-group row">
                     <label for="target"
-                           class="col-sm-2 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Target_AR') : __('cruds.Reports.Target_EN') }}
+                           class="col-xl-1 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Target_AR') : __('cruds.Reports.Target_EN') }}
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-xl-11">
                         {{ Form::hidden('children_id', $child_id) }}
                         {!! Form::text('target','', array('placeholder' => '','class' => 'form-control','id'=>'target','required'=>'')) !!}
 
@@ -37,31 +37,27 @@
 
                     <div class="form-group row">
                         <label
-                            class="col-sm-2 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Develop') : __('cruds.Reports.Develop') }}
+                            class="col-xl-1 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Develop') : __('cruds.Reports.Develop') }}
                         </label>
-                        <div class="col-sm-10">
+                        <div class="col-xl-11">
                             
-                                <div class="box p-a-xs">
                                     {{ Form::number('develop', '' , array('placeholder' => '','class' => 'form-control','id'=>'type','required'=>'')) }}
-                                </div>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label
-                            class="col-sm-2 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Recommend') : __('cruds.Reports.Recommend') }}
+                            class="col-xl-1 form-control-label">{{ app()->getLocale() === 'ar' ? __('cruds.Reports.Recommend') : __('cruds.Reports.Recommend') }}
                         </label>
-                        <div class="col-sm-10">
+                        <div class="col-xl-11">
                             
-                                <div class="box p-a-xs">
                                     {!! Form::text('recommends' , '' ,array('placeholder' => '','class' => 'form-control','id'=>'type','required'=>'')) !!}
-                                </div>
                         </div>
                     </div> 
 
                   
                 <div class="form-group row m-t-md">
-                    <div class="offset-sm-2 col-sm-10">
+                    <div class="offset-sm-2 col-xl-11">
                         <button type="submit" class="btn btn-primary m-t"><i class="material-icons">
                                 &#xe31b;</i> {!! __('backend.add') !!}</button>
                         <a href="{{route('showChildrenFinalReports', $child_id)}}"
